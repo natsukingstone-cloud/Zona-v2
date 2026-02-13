@@ -30,7 +30,7 @@ a:hover{ opacity:.9; }
 
 /* section */
 .section{ padding: 0; }
-.section__title{ font-size: 24px; margin: 0 0 10px; }
+.section__title{ font-size: 24px; margin: 0 0 10px; text-align: center; }
 .section__text{ margin: 0 0 14px; color: var(--muted); }
 
 .section-divider{
@@ -219,7 +219,7 @@ a:hover{ opacity:.9; }
     width: 100%;
     max-width: 100%;
     margin: 0;
-    border-radius: 6px;
+    border-radius: 0; /* 角丸なしに変更 */
     height: auto;
     object-fit: cover;
   }
@@ -262,14 +262,20 @@ a:hover{ opacity:.9; }
 }
 
 .menu-card__name{
-  font-size: 16px;
+  font-size: 12px;
   margin: 0 0 6px;
   font-weight: 500;
+  color: #777;
 }
 
 .menu-card__sub{
-  font-size: 12px;
-  color: #999;
+  font-size: 16px;
+  color: #777;
+  margin: 0 0 8px;
+}
+.menu-card__sub--jp {
+  font-size: 16px;
+  color: #111; /* 日本語：黒 */
   margin: 0 0 8px;
 }
 
@@ -279,6 +285,8 @@ a:hover{ opacity:.9; }
   color: #111;
   margin: 0;
 }
+
+
 
 
 /* Seasonal */
@@ -300,7 +308,7 @@ margin-top: 16px;} /*タイトル上の余白*/
 
 /* タイトルは左寄せ */
 .visit .section__title{
-  text-align: left;
+  text-align: center;
 }
 
 /* 全体は左基準 */
@@ -698,7 +706,6 @@ margin-top: 16px;} /*タイトル上の余白*/
   height: 420px;
   border: 0;
   display: block;
-  border-radius: 10px;
 }
 @media (max-width: 767px){
   .visit__map iframe{ height: 320px; }
@@ -909,7 +916,9 @@ margin-top: 16px;} /*タイトル上の余白*/
     grid-row: 5 / 7 !important;
     margin: 0 !important;
   }
+  
 }
+
 
 /* SP：Aboutの順番指定 */
 @media (max-width: 767px){
@@ -928,6 +937,9 @@ margin-top: 16px;} /*タイトル上の余白*/
   #about .photo-sweets{ order: 8 !important; }
   
   #about .photo{ margin: 20px 0 !important; }
+}
+#about {
+  padding-top: 160px; /* 数値はお好みで調整 */
 }
 
 /* ===== SPだけ：Aboutの順番を確実に変更 ===== */
@@ -1141,5 +1153,89 @@ margin-top: 16px;} /*タイトル上の余白*/
     width: 45px;
     height: 45px;
     font-size: 18px;
+  }
+}
+
+/* Google Mapのがどまるを外す */
+.visit__map iframe {
+  border-radius: 0 !important;
+}
+
+/* ===== 講師FB：SP余白・FVスペース調整 ===== */
+@media (max-width: 767px) {
+  .container {
+    padding-left: 20px;
+    padding-right: 20px;  
+  }
+
+  .hero-copy {
+    bottom: 68%;
+  }
+}
+
+/* Eat in Space テキストをSeasonal Picksに合わせる */
+.eatin-text-block .about-text-en {
+  font-size: 13px;
+  line-height: 1.7;
+  color: #777; /* グレー */
+  margin: 0 0 10px;
+}
+
+.eatin-text-block .section__text {
+  font-size: 14px;
+  line-height: 1.9;
+  color: #333; /* 黒 */
+  margin: 0;
+}
+
+/* ===== テキスト 英語グレー・日本語黒 統一 ===== */
+
+/* ABOUT */
+.about-lead-en {
+  color: #777;
+}
+.about-lead-jp {
+  color: #333;
+}
+.about-text--en {
+  font-size: 13px;
+  color: #777;
+  line-height: 1.7;
+  margin: 0 0 10px;
+}
+.about-text--jp {
+  font-size: 14px;
+  color: #333;
+  line-height: 1.9;
+  margin: 0;
+}
+
+
+
+
+/* メニューリストテキスト */
+.menu-row__en {
+  font-size: 14px;
+  color: #777; /* 英語：グレー */
+}
+.menu-row__jp {
+  font-size: 12px;
+  color: #333; /* 日本語：黒 */
+}
+/* ===== FV内 ABOUTリンクを下に下げる ===== */
+.hero-overlay {
+  transform: translateY(60px); /* 現在34px → 60pxに増やす */
+}
+
+@media (max-width: 767px) {
+  .hero-overlay {
+    transform: translateY(80px); /* SPはさらに下に */
+  }
+
+}
+ /* ===== PC メニューカード テキスト中央揃え ===== */
+@media (min-width: 768px) {
+  .menu-card {
+    text-align: center;
   }
 }

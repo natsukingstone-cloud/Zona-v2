@@ -73,7 +73,7 @@ if (slides.length > 1) {
     slides[currentSlide].classList.remove("active");
     currentSlide = (currentSlide + 1) % slides.length;
     slides[currentSlide].classList.add("active");
-  }, 2500);
+  }, 5000);
 }
 
 // ================================
@@ -92,4 +92,19 @@ window.addEventListener("scroll", () => {
 
 backToTop.addEventListener("click", () => {
   window.scrollTo({ top: 0, behavior: "smooth" });
+});
+
+// ================================
+// 6) パララックス（ABOUT・SEASONAL）
+// ================================
+const parallaxImgs = document.querySelectorAll(
+  "#about .photo-farm img, #seasonal .season-card__photo img"
+);
+
+window.addEventListener("scroll", () => {
+  parallaxImgs.forEach((img) => {
+    const rect = img.closest("figure").getBoundingClientRect();
+    const center = rect.top + rect.height / 2 - window.innerHeight / 2;
+    img.style.transform = `translateY(${center * 0.12}px)`;
+  });
 });
