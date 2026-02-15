@@ -95,16 +95,18 @@ backToTop.addEventListener("click", () => {
 });
 
 // ================================
-// 6) パララックス（ABOUT・SEASONAL）
+// 6) パララックス（全セクション写真）
 // ================================
-const parallaxImgs = document.querySelectorAll(
-  "#about .photo-farm img, #seasonal .season-card__photo img"
+const parallaxTargets = document.querySelectorAll(
+  "#about .photo-farm img, #about .photo-sweets img, #seasonal .season-card__photo img, #eat-in .photo img"
 );
 
 window.addEventListener("scroll", () => {
-  parallaxImgs.forEach((img) => {
-    const rect = img.closest("figure").getBoundingClientRect();
+  parallaxTargets.forEach((img) => {
+    const figure = img.closest("figure");
+    if (!figure) return;
+    const rect = figure.getBoundingClientRect();
     const center = rect.top + rect.height / 2 - window.innerHeight / 2;
-    img.style.transform = `translateY(${center * 0.12}px)`;
+    img.style.transform = `translateY(${center * 0.05}px)`; /* 0.05=動き小さめ */
   });
-});
+}, { passive: true });

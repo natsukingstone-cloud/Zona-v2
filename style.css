@@ -35,10 +35,9 @@ a:hover{ opacity:.9; }
 
 .section-divider{
   width: min(92vw, var(--container));
-  margin: 56px auto;
+  margin: 80px auto;/* 56px → 80px */
   border-top: 1px solid var(--line);
 }
-
 /* header (PC only, SP hidden) */
 .header{
   position: sticky;
@@ -502,16 +501,11 @@ margin-top: 16px;} /*タイトル上の余白*/
 
 @media (min-width: 768px){
   .menu-cat{
-    font-size: 24px;          /* VISIT相当 */
-    margin: 0 0 10px;
-    color: #111;
-    letter-spacing: .08em;    /* 少し残すのはアリ */
-    text-transform: uppercase;
+    font-size: 26px;          /* 24→26（少し余裕） */
+    margin: 48px 0 18px;     /* ←②と揃える */
+    letter-spacing: .14em;   /* ←②と揃える */
   }
 }
-
-
-
 
 .menu-item{
   max-width: 640px;
@@ -610,9 +604,8 @@ margin-top: 16px;} /*タイトル上の余白*/
 /* ===== Animation (base) ===== */
 .reveal{
   opacity: 0;
-  transform: translateY(10px);
-  transition: opacity .7s ease, transform .7s ease;
-  will-change: opacity, transform;
+  transform: none;            
+  transition: opacity 0.9s ease;
 }
 .reveal.is-visible{
   opacity: 1;
@@ -637,7 +630,7 @@ margin-top: 16px;} /*タイトル上の余白*/
 @media (hover: hover){
   .menu-item__photo{ overflow: hidden; }
   .menu-item__photo img{ transition: transform 1.2s ease; }
-  .menu-item:hover .menu-item__photo img{ transform: scale(1.08); }
+  .menu-item:hover .menu-item__photo img{ transform: scale(1.03); }
 }
 
 /* SP：タップ反応は transform を使わない */
@@ -1266,4 +1259,241 @@ margin-top: 16px;} /*タイトル上の余白*/
   text-align: center !important;
   margin-bottom: 32px !important;
   letter-spacing: .12em !important;
+}
+
+/* ===== FV hero-overlay：Chaan風 underline hover ===== */
+.hero-overlay a{
+  position: relative;
+  display: inline-block;
+  text-decoration: none; /* 念のため */
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* 下線（最初は見えない） */
+.hero-overlay a::after{
+  content:"";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -4px;          /* 文字の下の距離。好みで -4〜-10 */
+  height: 1px;
+  background: rgba(255,255,255,.9);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .35s ease;
+  opacity: .9;
+}
+
+/* hoverでスッと出す */
+@media (hover:hover){
+  .hero-overlay a:hover::after{
+    transform: scaleX(1);
+  }
+}
+@media (hover:none){
+  .hero-overlay a:active::after{
+    transform: scaleX(1);
+  }
+}
+
+/* キーボード操作でも見える */
+.hero-overlay a:focus-visible::after{
+  transform: scaleX(1);
+}
+
+/* ===== Menu category title：Chaan寄り ===== */
+.menu-cat{
+  font-family: "Times New Roman", Georgia, serif;
+  font-weight: 300;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  text-align: center;
+  margin: 48px 0 18px;
+  position: relative;
+}
+
+/* 細い下線を中央に */
+.menu-cat::after{
+  content:"";
+  display:block;
+  width: 64px;
+  height: 1px;
+  background: var(--line);
+  margin: 14px auto 0;
+}
+/* ===== Menu tabs：hover underline ===== */
+.menu-tabs a{
+  position: relative;
+  display: inline-block;
+  letter-spacing: .12em;
+}
+
+.menu-tabs a::after{
+  content:"";
+  position:absolute;
+  left:0; right:0;
+  bottom:-6px;
+  height:1px;
+  background:#111;
+  transform: scaleX(0);
+  transform-origin:left;
+  transition: transform .25s ease;
+  opacity:.55;
+}
+
+@media (hover:hover){
+  .menu-tabs a:hover::after{ transform: scaleX(1); }
+}
+
+/* “今いるタブ” を強調したいなら（任意）
+   HTML側で <a class="is-active" ...> にする */
+.menu-tabs a.is-active::after{
+  transform: scaleX(1);
+  opacity:.8;
+}
+/* ===== Menu tabs：hover underline ===== */
+.menu-tabs a{
+  position: relative;
+  display: inline-block;
+  letter-spacing: .12em;
+}
+
+.menu-tabs a::after{
+  content:"";
+  position:absolute;
+  left:0; right:0;
+  bottom:-6px;
+  height:1px;
+  background:#111;
+  transform: scaleX(0);
+  transform-origin:left;
+  transition: transform .25s ease;
+  opacity:.55;
+}
+
+@media (hover:hover){
+  .menu-tabs a:hover::after{ transform: scaleX(1); }
+}
+
+/* ===== FV（hero-overlay）をChaan寄りに調整 ===== */
+
+/* 全体の縦位置：少し下に落として余白を作る */
+.hero-overlay{
+  transform: translateY(44px) !important; /* 40〜70で微調整 */
+  gap: 14px;                               /* 行間を少し広め */
+}
+
+/* 文字：細く、字間を広めに、上品に */
+.hero-overlay a{
+  font-family: "Times New Roman", Georgia, serif;
+  font-weight: 300;
+  letter-spacing: .18em;  /* Chaanっぽい肝 */
+  line-height: 1.1;
+  padding: 6px 0;         /* 下線のスペース確保 */
+}
+
+/* SP：画面が小さい時は少し小さくして品良く */
+@media (max-width: 767px){
+  .hero-overlay a{
+    font-size: 28px;       /* 26〜30で好み */
+  }
+}
+
+/* PC：少し大きめで余裕 */
+@media (min-width: 768px){
+  .hero-overlay a{
+    font-size: 40px;       /* 36〜44で好み */
+  }
+}
+
+/* ===== reveal 基本（これを最終形にする） ===== */
+.reveal{
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity .9s ease, transform .9s ease;
+  will-change: opacity, transform;
+}
+.reveal.is-visible{
+  opacity: 1;
+  transform: translateY(0);
+}
+@media (prefers-reduced-motion: reduce){
+  .reveal{ opacity:1; transform:none; transition:none; }
+}
+/* ===== 写真だけ：初動をCha-an寄り（Seasonalの感じ） ===== */
+.photo.reveal img,
+.season-card__photo.reveal img,
+.menu-card__photo.reveal img,
+.menu-item__photo.reveal img{
+  opacity: 0;
+  transform: translateY(22px) scale(1.03);
+  transition: opacity 1.2s ease, transform 1.2s ease;
+  will-change: opacity, transform;
+}
+
+.photo.reveal.is-visible img,
+.season-card__photo.reveal.is-visible img,
+.menu-card__photo.reveal.is-visible img,
+.menu-item__photo.reveal.is-visible img{
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+@media (min-width: 768px){
+  .reveal-x{
+    opacity: 0;
+    transform: translateX(-18px);
+    transition: opacity .9s ease, transform .9s ease;
+  }
+  .reveal-x.is-visible{
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+/* ===== パララックス写真：はみ出し防止 ===== */
+.photo,
+.season-card__photo,
+#eat-in .photo {
+  overflow: hidden; /* 写真がはみ出さないように */
+}
+
+.photo img,
+.season-card__photo img {
+  will-change: transform;
+  transition: none !important; /* パララックスと競合しないよう */
+}
+/* 写真ホバー：薄いオーバーレイ */
+.photo,
+.season-card__photo,
+.menu-card__photo {
+  position: relative;
+}
+.photo::after,
+.season-card__photo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255,255,255,0);
+  transition: background .4s ease;
+  pointer-events: none;
+}
+@media (hover: hover) {
+  .photo:hover::after,
+  .season-card__photo:hover::after {
+    background: rgba(255,255,255,.08);
+  }
+}
+/* セクションタイトル下線 */
+.section__title::after {
+  content: "";
+  display: block;
+  width: 40px;
+  height: 1px;
+  background: #ccc;
+  margin: 12px auto 0;
+}
+@media (min-width: 768px) {
+  .hero__media {
+    height: 90vh !important;
+    min-height: 600px !important;
+  }
 }
