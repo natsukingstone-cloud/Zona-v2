@@ -1536,11 +1536,10 @@ margin-top: 16px;} /*タイトル上の余白*/
 
 #eat-in .eatin-parallax-bg {
   background-image: url('images/about/about-eatin.jpeg');
-  background-attachment: fixed;
   background-size: cover;
-  background-position: center;
-  height: 60vh;
-  min-height: 400px;
+  background-position: center top; /* 上から表示開始 */
+  height: 120vh !important; /* 70vh → 120vhに大きく */
+  min-height: 700px !important;
   width: 100%;
   margin-bottom: 40px;
 }
@@ -1564,4 +1563,31 @@ margin-top: 16px;} /*タイトル上の余白*/
     height: 50vw;
     min-height: 280px;
   }
+}
+/* ===== FVパララックス準備 ===== */
+.hero-slideshow {
+  overflow: hidden;
+}
+.hero-slide {
+  will-change: transform;
+  transition: opacity 1.5s ease-in-out; /* スライドショーのフェードはそのまま */
+}
+
+/* ===== FVパララックス準備 ===== */
+.hero-slideshow {
+  overflow: hidden;
+}
+.hero-slide {
+  will-change: transform;
+  transition: opacity 1.5s ease-in-out; /* スライドショーのフェードはそのまま */
+}
+/* セクションタイトル：左からスライドイン */
+.section__title.reveal {
+  opacity: 0;
+  transform: translateX(-20px);
+  transition: opacity .9s ease, transform .9s ease;
+}
+.section__title.reveal.is-visible {
+  opacity: 1;
+  transform: translateX(0);
 }

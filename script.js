@@ -95,18 +95,49 @@ backToTop.addEventListener("click", () => {
 });
 
 // ================================
-// 6) パララックス（全セクション写真）
+// 6) パララックス（全セクション写真 + Eat in Space背景）
 // ================================
+// FVスライドショーのパララックス
+const heroMedia = document.querySelector(".hero__media");
+if (heroMedia) {
+  window.addEventListener("scroll", () => {
+    const scrollY = window.scrollY;
+    const slides = heroMedia.querySelectorAll(".hero-slide");
+    slides.forEach((slide) => {
+      slide.style.transform = `translateY(${scrollY * 0.5}px)`;
+    });
+  }, { passive: true });
+}
+
+// Menu FVのパララックス
+const menuHeroImg = document.querySelector(".menu-hero__img");
+if (menuHeroImg) {
+  window.addEventListener("scroll", () => {
+    const scrollY = window.scrollY;
+    menuHeroImg.style.transform = `translateY(${scrollY * 0.5}px)`;
+  }, { passive: true });
+}
+
 const parallaxTargets = document.querySelectorAll(
-  "#about .photo-farm img, #about .photo-sweets img, #seasonal .season-card__photo img, #eat-in .photo img"
+  "#about .photo-farm img, #about .photo-sweets img, #seasonal .season-card__photo img"
 );
 
 window.addEventListener("scroll", () => {
+  // 通常写真のパララックス
   parallaxTargets.forEach((img) => {
     const figure = img.closest("figure");
     if (!figure) return;
     const rect = figure.getBoundingClientRect();
     const center = rect.top + rect.height / 2 - window.innerHeight / 2;
-    img.style.transform = `translateY(${center * 0.05}px)`; /* 0.05=動き小さめ */
+    img.style.transform = `translateY(${center * 0.05}px)`;
   });
+
+  // Eat in Space背景のパララックス
+  const eatinBg = document.querySelector(".eatin-parallax-bg");
+  if (eatinBg) {
+    const rect = eatinBg.getBoundingClientRect();
+    const center = rect.top + rect.height / 2 - window.innerHeight / 2;
+    const offset = center * 0.4;
+    eatinBg.style.backgroundPosition = `center calc(50% + ${offset}px)`;
+  }
 }, { passive: true });
