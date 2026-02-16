@@ -1510,3 +1510,58 @@ margin-top: 16px;} /*タイトル上の余白*/
     padding-top: 20px !important;
   }
 }
+/* ===== Eat in Space パララックス背景 ===== */
+.eatin-parallax-bg {
+  background-image: url('images/about/about-eatin.jpeg');
+  background-attachment: fixed; /* ← これがNike風パララックスの核心 */
+  background-size: cover;
+  background-position: center;
+  height: 60vh;
+  min-height: 400px;
+  width: 100%;
+}
+
+/* SPはfixedが効かないブラウザがあるので通常表示に */
+@media (max-width: 767px) {
+  .eatin-parallax-bg {
+    background-attachment: scroll;
+    height: 50vw;
+    min-height: 280px;
+  }
+}
+/* ===== Eat in Space パララックス：グリッド外に出す ===== */
+#eat-in .container {
+  display: block !important;
+}
+
+#eat-in .eatin-parallax-bg {
+  background-image: url('images/about/about-eatin.jpeg');
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  height: 60vh;
+  min-height: 400px;
+  width: 100%;
+  margin-bottom: 40px;
+}
+
+/* タイトルとテキストは中央に */
+#eat-in .section__title {
+  text-align: center !important;
+  margin-bottom: 20px !important;
+}
+
+#eat-in .eatin-text-block {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* SP */
+@media (max-width: 767px) {
+  #eat-in .eatin-parallax-bg {
+    background-attachment: scroll;
+    height: 50vw;
+    min-height: 280px;
+  }
+}
