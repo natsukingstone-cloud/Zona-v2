@@ -1,143 +1,125 @@
-// ================================
-// 1) ハンバーガーメニュー開閉（PCヘッダー用）
-// ================================
-const btn = document.querySelector(".hamburger");
-const nav = document.querySelector(".nav");
+// Zo-na Website - JavaScript
 
-if (btn && nav) {
-  btn.addEventListener("click", () => {
-    const isOpen = nav.classList.toggle("is-open");
-    btn.setAttribute("aria-expanded", String(isOpen));
-  });
-
-  nav.addEventListener("click", (e) => {
-    const target = e.target;
-    if (target instanceof HTMLAnchorElement) {
-      nav.classList.remove("is-open");
-      btn.setAttribute("aria-expanded", "false");
+// Hero Slider
+document.addEventListener('DOMContentLoaded', function() {
+    const slides = document.querySelectorAll('.hero-slide');
+    let currentSlide = 0;
+    
+    function nextSlide() {
+        slides[currentSlide].classList.remove('active');
+        currentSlide = (currentSlide + 1) % slides.length;
+        slides[currentSlide].classList.add('active');
     }
-  });
-}
-
-// ================================
-// 2) reveal（フェードイン）
-// ================================
-const revealEls = document.querySelectorAll(".reveal");
-
-if (revealEls.length) {
-  const io = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("is-visible");
-          io.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.12, rootMargin: "0px 0px -10% 0px" }
-  );
-
-  revealEls.forEach((el) => io.observe(el));
-}
-
-// ================================
-// 3) スムーススクロール（#リンク）
-// ================================
-document.querySelectorAll('a[href^="#"]').forEach((a) => {
-  a.addEventListener("click", (e) => {
-    const href = a.getAttribute("href");
-    if (!href || href === "#") return;
-
-    const target = document.querySelector(href);
-    if (!target) return;
-
-    e.preventDefault();
-    target.scrollIntoView({ behavior: "smooth", block: "start" });
-
-    // SPでメニュー開いてたら閉じる（保険）
-    if (nav?.classList.contains("is-open")) {
-      nav.classList.remove("is-open");
-      btn?.setAttribute("aria-expanded", "false");
+    
+    // Change slide every 5 seconds
+    if (slides.length > 1) {
+        setInterval(nextSlide, 5000);
     }
-  });
 });
 
-// ================================
-// 4) Heroスライドショー（2.5秒）
-// ================================
-const slides = document.querySelectorAll(".hero-slide");
-let currentSlide = 0;
+// Hamburger Menu Toggle
+const hamburger = document.querySelector('.hamburger');
+const navLinks = document.querySelector('.nav-links');
 
-if (slides.length > 1) {
-  setInterval(() => {
-    slides[currentSlide].classList.remove("active");
-    currentSlide = (currentSlide + 1) % slides.length;
-    slides[currentSlide].classList.add("active");
-  }, 5000);
-}
-
-// ================================
-// 5) トップに戻るボタン（必要なら）
-// ================================
-const backToTop = document.createElement("button");
-backToTop.className = "back-to-top";
-backToTop.innerHTML = "↑";
-backToTop.setAttribute("aria-label", "トップに戻る");
-document.body.appendChild(backToTop);
-
-window.addEventListener("scroll", () => {
-  if (window.scrollY > 300) backToTop.classList.add("show");
-  else backToTop.classList.remove("show");
-});
-
-backToTop.addEventListener("click", () => {
-  window.scrollTo({ top: 0, behavior: "smooth" });
-});
-
-// ================================
-// 6) パララックス（全セクション写真 + Eat in Space背景）
-// ================================
-// FVスライドショーのパララックス
-const heroMedia = document.querySelector(".hero__media");
-if (heroMedia) {
-  window.addEventListener("scroll", () => {
-    const scrollY = window.scrollY;
-    const slides = heroMedia.querySelectorAll(".hero-slide");
-    slides.forEach((slide) => {
-      slide.style.transform = `translateY(${scrollY * 0.5}px)`;
+if (hamburger) {
+    hamburger.addEventListener('click', function() {
+        hamburger.classList.toggle('active');
+        navLinks.classList.toggle('active');
     });
-  }, { passive: true });
+
+    // Close menu when clicking on a link
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', function() {
+            hamburger.classList.remove('active');
+            navLinks.classList.remove('active');
+        });
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', function(e) {
+        if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
+            hamburger.classList.remove('active');
+            navLinks.classList.remove('active');
+        }
+    });
 }
 
-// Menu FVのパララックス
-const menuHeroImg = document.querySelector(".menu-hero__img");
-if (menuHeroImg) {
-  window.addEventListener("scroll", () => {
-    const scrollY = window.scrollY;
-    menuHeroImg.style.transform = `translateY(${scrollY * 0.5}px)`;
-  }, { passive: true });
-}
+// Header scroll effect
+window.addEventListener('scroll', function() {
+    const header = document.querySelector('header');
+    if (window.scrollY > 100) {
+        header.classList.add('scrolled');
+    } else {
+        header.classList.remove('scrolled');
+    }
+});
 
-const parallaxTargets = document.querySelectorAll(
-  "#about .photo-farm img, #about .photo-sweets img, #seasonal .season-card__photo img"
-);
+// Parallax effect for hero images
+window.addEventListener('scroll', function() {
+    const heroSlides = document.querySelectorAll('.hero-slide img');
+    const scrolled = window.pageYOffset;
+    
+    heroSlides.forEach(img => {
+        img.style.transform = `translateY(${scrolled * 0.5}px)`;
+    });
+});
 
-window.addEventListener("scroll", () => {
-  // 通常写真のパララックス
-  parallaxTargets.forEach((img) => {
-    const figure = img.closest("figure");
-    if (!figure) return;
-    const rect = figure.getBoundingClientRect();
-    const center = rect.top + rect.height / 2 - window.innerHeight / 2;
-    img.style.transform = `translateY(${center * 0.05}px)`;
-  });
+// Smooth scroll for navigation links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            const headerHeight = document.querySelector('header').offsetHeight;
+            const targetPosition = target.offsetTop - headerHeight;
+            
+            window.scrollTo({
+                top: targetPosition,
+                behavior: 'smooth'
+            });
+        }
+    });
+});
 
-  // Eat in Space背景のパララックス
-  const eatinBg = document.querySelector(".eatin-parallax-bg");
-  if (eatinBg) {
-    const rect = eatinBg.getBoundingClientRect();
-    const center = rect.top + rect.height / 2 - window.innerHeight / 2;
-    const offset = center * 0.4;
-    eatinBg.style.backgroundPosition = `center calc(50% + ${offset}px)`;
-  }
-}, { passive: true });
+// Add animation on scroll with stagger effect
+const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -100px 0px'
+};
+
+const observer = new IntersectionObserver(function(entries) {
+    entries.forEach((entry, index) => {
+        if (entry.isIntersecting) {
+            setTimeout(() => {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }, index * 100); // Stagger animation
+        }
+    });
+}, observerOptions);
+
+// Observe elements for animation
+document.querySelectorAll('.eat-in-card, .seasonal-item, .about-content, .menu-item, .eat-in-description').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(30px)';
+    el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+    observer.observe(el);
+});
+
+// Parallax effect for section backgrounds
+window.addEventListener('scroll', function() {
+    const scrolled = window.pageYOffset;
+    const parallaxSections = document.querySelectorAll('.section-alt');
+    
+    parallaxSections.forEach(section => {
+        const speed = 0.3;
+        section.style.backgroundPosition = `center ${scrolled * speed}px`;
+    });
+});
+
+// Add subtle hover animation to cards
+document.querySelectorAll('.eat-in-card, .menu-item').forEach(card => {
+    card.addEventListener('mouseenter', function() {
+        this.style.transition = 'transform 0.3s ease';
+    });
+});

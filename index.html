@@ -1,265 +1,210 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Zo-na（ゾーナ）｜蔵王町の温泉熱栽培いちごスイーツを浅草で</title>
-  <meta name="description" content="Zo-na（ゾーナ）は、宮城県蔵王町の温泉熱を利用して育てたいちごを使ったスイーツ専門店です。浅草で食べ歩きやイートインが楽しめます。" />
-  <link rel="canonical" href="https://zo-na.jp/" />
-  
-  <!-- OGP -->
-   <meta property="og:type" content="website">
-   <meta property="og:title" content="Zo-na（ゾーナ）｜蔵王町の温泉熱栽培いちごスイーツを浅草で">
-   <meta property="og:description" content="Zo-na（ゾーナ）は、宮城県蔵王町の温泉熱を利用して育てたいちごを使ったスイーツ専門店です。浅草で食べ歩きやイートインが楽しめます。">
-   <meta property="og:image" content="images/hero/ogp.jpg">
-   <meta property="og:url" content="https://zo-na.jp/">
-   
-   <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image">
-  
-  <!-- favicon / app icon -->
-  <link rel="icon" href="/favicon.ico">
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="192x192" href="/images/android-chrome-192x192.png">
-  <link rel="icon" type="image/png" sizes="512x512" href="/images/android-chrome-512x512.png">
-
-  <link rel="stylesheet" href="style.css" />
-  <script defer src="script.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zo-na（ゾーナ）｜蔵王町の温泉熱栽培いちごスイーツを浅草で</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@300;400;600&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-
-  <!-- PC用ヘッダー（SPではCSSで非表示） -->
-  <header class="header">
-    <div class="header__inner">
-      <a class="logo" href="index.html#home" aria-label="Zo-na Home">
-        <img class="logo__img" src="images/common/logo.png" alt="Zo-na">
-      </a>
-
-      <button class="hamburger" type="button"
-        aria-label="メニューを開く"
-        aria-expanded="false"
-        aria-controls="site-nav">
-        <span class="hamburger__bar"></span>
-        <span class="hamburger__bar"></span>
-        <span class="hamburger__bar"></span>
-      </button>
+    <!-- Decorative strawberry seed pattern -->
+    <div class="seed-pattern" aria-hidden="true">
+        <div class="seed" style="top: 10%; left: 15%;"></div>
+        <div class="seed" style="top: 25%; left: 85%;"></div>
+        <div class="seed" style="top: 40%; left: 25%;"></div>
+        <div class="seed" style="top: 55%; left: 75%;"></div>
+        <div class="seed" style="top: 70%; left: 40%;"></div>
+        <div class="seed" style="top: 85%; left: 60%;"></div>
+        <div class="seed" style="top: 15%; left: 50%;"></div>
+        <div class="seed" style="top: 35%; left: 65%;"></div>
+        <div class="seed" style="top: 60%; left: 20%;"></div>
+        <div class="seed" style="top: 80%; left: 80%;"></div>
+        <div class="seed" style="top: 20%; left: 45%;"></div>
+        <div class="seed" style="top: 50%; left: 55%;"></div>
     </div>
 
-    <nav id="site-nav" class="nav" aria-label="サイトメニュー">
-      <a class="nav__link" href="#about" data-image="hero-about.jpeg">About</a>
-      <a class="nav__link" href="menu.html">Menu</a>
-      <a class="nav__link" href="#eat-in">Eat in Space</a>
-      <a class="nav__link" href="#seasonal">Seasonal Picks</a>
-      <a class="nav__link" href="#visit" data-image="hero-visit.jpeg">Visit</a>
-    </nav>
-  </header>
+    <!-- Header -->
+    <header id="home">
+        <nav>
+            <a href="#home" class="logo">
+                <img src="images/common/logo.png" alt="Zo-na" class="logo-img">
+            </a>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="#eat-in">Eat in Space</a></li>
+                <li><a href="#seasonal">Seasonal Picks</a></li>
+                <li><a href="#visit">Visit</a></li>
+            </ul>
+            <button class="hamburger" aria-label="メニュー">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
 
-  <main>
-
-   <!-- HERO -->
-<section id="home" class="section hero">
-  <div class="container">
-    <div class="hero__media">
-      <div class="hero-logo">
-        <img src="images/common/logo.png" alt="Zo-na">
-      </div>
-
-      <!-- スライドショー用の複数画像 -->
-<div class="hero-slideshow">
-  <img class="hero-slide active" src="images/hero/hero-hand-strawberry.jpeg" alt="蔵王の新鮮ないちご">
-  <img class="hero-slide" src="images/hero/hero-sweets-drink.jpeg" alt="いちごスイーツとドリンク">
-  <img class="hero-slide" src="images/hero/hero-strawberries.jpeg" alt="蔵王のいちご">
-  <img class="hero-slide" src="images/hero/hero-default.jpeg" alt="Zo-na いちごスイーツ">
-</div>
-
-      <div class="hero-copy">
-        <h1 class="hero-copy__title">蔵王町のいちごを、浅草で。</h1>
-        <p class="hero-copy__lead">温泉熱栽培のいちごを使った、食べ歩き＆イートインのいちごスイーツ。</p>
-      </div>
-
-      <nav class="hero-overlay" aria-label="Hero menu">
-        <a href="#about">ABOUT</a>
-        <a href="menu.html">MENU</a>
-        <a href="#eat-in">EAT IN SPACE</a>
-        <a href="#seasonal">SEASONAL PICKS</a>
-        <a href="#visit">VISIT</a>
-      </nav>
-
-    </div>
-  </div>
-</section>
-
-    <!-- About -->
-   <section id="about" class="section reveal">
-  <div class="container">
-    <h2 class="section__title">ABOUT</h2>
-
-    <p class="about-lead-en">STRAWBERRY SWEETS &amp; DRINKS FROM ZAO, MIYAGI</p>
-    <p class="about-lead-jp">蔵王の温泉熱で育ったいちごを、浅草で新しいスイーツのかたちに。</p>
-
-    <!-- いちご農園の写真 -->
-    <figure class="photo photo-farm reveal parallax">
-  <img src="images/about/about-farm.jpeg" alt="蔵王町のいちご農園">
-</figure>
-
-
-    <!-- About usテキスト -->
-    <h3 class="about-subtitle">About us</h3>
-    <p class="about-text about-text--en">
-      Tucked away in the heart of Asakusa, Zo-na is a cozy haven serving sweets crafted from strawberries grown in the warm onsen soil of Zao. Each bite captures nature's gentle sweetness and the care of the people who nurture it. Relax, smile, and enjoy a little moment of happiness with us.
-    </p>
-    <p class="about-text about-text--jp">
-      浅草のまんなかで、蔵王のいちごを使ったスイーツをお届けしています。いちご一粒一粒にこめられたやさしさとぬくもりを、そのまま感じていただけるように。笑顔になれる、ほんのひとときをどうぞ。
-    </p>
-
-    <!-- スイーツの写真 -->
-    <figure class="photo photo-sweets reveal parallax">
-  <img src="images/about/about-sweets.jpeg" alt="いちごスイーツ">
-</figure>
-
-
-  </div>
-</section>
-
-    <div class="section-divider"></div>
-
-    <!-- Eat in Space -->
-   <section id="eat-in" class="section reveal">
-  <div class="container">
-    <h2 class="section__title reveal">EAT in SPACE</h2>
-  </div>
-
-  <!-- containerの外に出す -->
-  <div class="eatin-parallax-bg"></div>
-
-  <div class="container">
-    <div class="eatin-text-block">
-      <p class="about-text-en">A cozy eat-in space where you can relax and enjoy strawberry sweets.</p>
-      <p class="section__text">
-        店内にはイートインスペースもご用意しています。<br>
-        いちごスイーツをゆっくりお楽しみください。
-      </p>
-    </div>
-  </div>
-</section>
-
-    <div class="section-divider"></div>
-
-    <!-- Seasonal Picks -->
-    <section id="seasonal" class="section reveal">
-  <div class="container">
-    <h2 class="section__title">SEASONAL PICKS</h2>
-
-    <article class="season-card reveal">
-      <div class="season-text-block">
-        <h3 class="season-card__name">いちごクリーム大福</h3>
-        <p class="season-card__sub">Mochi with Cream and Red Bean Paste</p>
-
-        <p class="season-card__desc-en">
-          Soft mochi filled with smooth sweet red bean paste and cream, gently wrapped around a fresh strawberry.
-        </p>
-
-        <p class="season-card__desc-jp">
-          やわらかいお餅にこしあんとクリームが入った大福です。
-        </p>
-      </div>
-
-      <figure class="season-card__photo reveal">
-        <img src="images/seasonal/seasonal-01.jpeg" alt="いちごクリーム大福" data-parallax="0.12">
-      </figure>
-    </article>
-
-  </div>
-</section>
-
-    <div class="section-divider"></div>
-
-    <!-- Visit -->
-    <section id="visit" class="section visit reveal">
-      <div class="container">
-        <h2 class="section__title reveal">VISIT</h2>
-
-
-       <div class="visit__map reveal">
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3239.599242670203!2d139.79366457651903!3d35.71147837257743!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188ec6d14858b7%3A0x1b00f20c34bd2c34!2z44CSMTExLTAwMzIg5p2x5Lqs6YO95Y-w5p2x5Yy65rWF6I2J77yR5LiB55uu77yR77yY4oiS77yR77ySIEpT44OT44Or!5e0!3m2!1sja!2sjp!4v1770453693226!5m2!1sja!2sjp" 
-      width="600" 
-      height="450" 
-      style="border:0;" 
-      allowfullscreen="" 
-      loading="lazy" 
-      referrerpolicy="no-referrer-when-downgrade"
-      title="Zo-na map">
-
-      </iframe>
-
-</div>
-
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-slider">
+            <div class="hero-slide active">
+                <img src="images/hero/hero-hand-strawberry.jpeg" alt="蔵王の新鮮ないちご">
+            </div>
+            <div class="hero-slide">
+                <img src="images/hero/hero-sweets-drink.jpeg" alt="いちごスイーツとドリンク">
+            </div>
+            <div class="hero-slide">
+                <img src="images/hero/hero-strawberries.jpeg" alt="蔵王のいちご">
+            </div>
+            <div class="hero-slide">
+                <img src="images/hero/hero-default.jpeg" alt="Zo-na いちごスイーツ">
+            </div>
+        </div>
         
-<div class="visit__grid">
-  <!-- 左：所在地・お問い合わせ -->
-  <div class="visit__col visit__col--left">
-    <p class="visit__label">Location &amp; Contact</p>  
-    <p class="visit__en">
-      1-18-12 Asakusa, Taito City, Tokyo 111-0032, Japan<br>
-      info@zo-na.jp
-    </p>
-    <p class="visit__jp">
-      所在地・お問い合わせ<br>
-      東京都台東区浅草1丁目18-12<br>
-      info@zo-na.jp
-    </p>
-  </div>
-
-  <!-- 中央：ロゴ・SNS -->
-  <div class="visit__col visit__col--center">
-  <div class="visit__brand-line">
-    <span class="visit__brand-text">Zo-na</span>
-    <span class="visit__brand-jp">ゾーナ</span>
-    <img src="images/common/logo-mark.png" alt="" class="visit__brand-mark">
-  </div>
-
-  <div class="visit__sns visit__sns--below">
-    <a href="https://www.instagram.com/asakusa_ichigo.zo_na/" target="_blank" rel="noopener" aria-label="Instagram">
-      <img src="images/icons/instagram.png" alt="">
-    </a>
-    <a href="https://www.tiktok.com/@asakusa_zona" target="_blank" rel="noopener" aria-label="TikTok">
-      <img src="images/icons/tiktok.png" alt="">
-    </a>
-  </div>
-</div>
-
-
-  <!-- 右：営業時間 -->
-  <div class="visit__col visit__col--right">
-    <div class="visit__hours">
-      <p class="visit__label">Open Hours</p>
-      <p class="visit__en">
-        Weekdays: 10:30 am – 4:30 pm<br>
-        Weekends &amp; Holidays: 10:00 am – 5:00 pm
-      </p>
-      <p class="visit__note">*Hours may vary depending on season or events.*</p>
-      <p class="visit__jp">
-        営業時間<br>
-        平日 10:30〜16:30 ／ 土日祝 10:00〜17:00<br>
-        <span class="visit__note-jp">※季節やイベントにより変動する場合があります</span>
-      </p>
-    </div>
-  </div>
-</div>
+        <div class="hero-overlay"></div>
+        
+        <div class="hero-content">
+            <h1 class="hero-title">蔵王町のいちごを、浅草で。</h1>
+            <p class="hero-subtitle">温泉熱栽培のいちごを使った、食べ歩き＆イートインのいちごスイーツ。</p>
+            <div class="hero-buttons">
+                <a href="#about" class="cta-button primary">About</a>
+                <a href="menu.html" class="cta-button secondary">Menu</a>
+            </div>
+        </div>
     </section>
 
-  </main>
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <h2 class="section-title">ABOUT</h2>
+            <p class="section-subtitle">STRAWBERRY SWEETS & DRINKS FROM ZAO, MIYAGI</p>
+            <p class="section-intro">蔵王の温泉熱で育ったいちごを、浅草で新しいスイーツのかたちに。</p>
+            
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="images/about/about-farm.jpeg" alt="蔵王町のいちご農園">
+                </div>
+                <div class="about-text">
+                    <h3>私たちについて</h3>
+                    <p class="subtitle-en">About us</p>
+                    <p>浅草のまんなかで、蔵王のいちごを使ったスイーツをお届けしています。いちご一粒一粒にこめられたやさしさとぬくもりを、そのまま感じていただけるように。笑顔になれる、ほんのひとときをどうぞ。</p>
+                    <p class="text-en">Tucked away in the heart of Asakusa, Zo-na is a cozy haven serving sweets crafted from strawberries grown in the warm onsen soil of Zao. Each bite captures nature's gentle sweetness and the care of the people who nurture it.</p>
+                </div>
+            </div>
+            
+            <div class="about-image-full">
+                <img src="images/about/about-sweets.jpeg" alt="いちごスイーツ">
+            </div>
+        </div>
+    </section>
 
- <footer class="footer">
-  <div class="container footer__inner">
-    <a class="footer__logo" href="#home" aria-label="Back to top">
-      <img src="images/common/logo.png" alt="Zo-na">
-    </a>
-    <p class="footer__copy">© Zo-na</p>
-  </div>
-</footer>
+    <!-- Eat In Section -->
+    <section id="eat-in" class="eat-in-section section-alt">
+        <div class="container">
+            <h2 class="section-title">EAT in SPACE</h2>
+            <p class="section-subtitle">A cozy eat-in space where you can relax and enjoy strawberry sweets.</p>
+            
+            <div class="eat-in-featured">
+                <div class="eat-in-image-full">
+                    <img src="images/about/about-eatin.jpeg" alt="Eat in Space">
+                </div>
+                <div class="eat-in-description">
+                    <div class="eat-in-text-box">
+                        <h3>ゆったりとした空間で</h3>
+                        <p class="subtitle-en">Relax & Enjoy</p>
+                        <p>店内にはイートインスペースもご用意しています。カラフルな鞠のランプが優しく灯る店内で、ゆっくりといちごスイーツをお楽しみください。</p>
+                        <p class="text-en">Our cozy eat-in space features colorful lanterns and a welcoming atmosphere. Perfect for savoring our strawberry sweets at your own pace.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- Seasonal Section -->
+    <section id="seasonal" class="seasonal-section">
+        <div class="container">
+            <h2 class="section-title">SEASONAL PICKS</h2>
+            
+            <div class="seasonal-item">
+                <div class="seasonal-image">
+                    <img src="images/seasonal/seasonal-01.jpeg" alt="いちごクリーム大福">
+                </div>
+                <div class="seasonal-text">
+                    <h3>いちごクリーム大福</h3>
+                    <h4>Mochi with Cream and Red Bean Paste</h4>
+                    <p>やわらかいお餅にこしあんとクリームが入った大福です。新鮮ないちごとクリームのまろやかさ、こしあんの上品な甘さが絶妙なバランスの一品です。</p>
+                    <p class="text-en">Soft mochi filled with smooth sweet red bean paste and cream, gently wrapped around a fresh strawberry.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- Visit Section -->
+    <section id="visit" class="visit-section section-alt">
+        <div class="container">
+            <h2 class="section-title">VISIT</h2>
+            <p class="section-subtitle">Location & Contact</p>
+            
+            <div class="visit-content">
+                <div class="visit-info">
+                    <div class="info-block">
+                        <h4>所在地・お問い合わせ</h4>
+                        <p class="info-en">Location & Contact</p>
+                        <p>東京都台東区浅草1丁目18-12</p>
+                        <p class="info-en">1-18-12 Asakusa, Taito City, Tokyo 111-0032, Japan</p>
+                        <p><a href="mailto:info@zo-na.jp">info@zo-na.jp</a></p>
+                    </div>
+                    
+                    <div class="info-block">
+                        <h4>営業時間</h4>
+                        <p class="info-en">Open Hours</p>
+                        <p>平日 10:30〜16:30</p>
+                        <p class="info-en">Weekdays: 10:30 AM – 4:30 PM</p>
+                        <p>土日祝 10:00〜17:00</p>
+                        <p class="info-en">Weekends & Holidays: 10:00 AM – 5:00 PM</p>
+                        <p class="note">※季節やイベントにより変動する場合があります</p>
+                    </div>
+                </div>
+                
+                <div class="map-container">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3239.6542891234567!2d139.79501231525893!3d35.71137098019234!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188ec1a4463df1%3A0x6c0d289a8292810d!2z5rWF6I2J77yR5LiB55uu77yR77yY4oiS77yR77yS!5e0!3m2!1sja!2sjp!4v1234567890123!5m2!1sja!2sjp" 
+                        width="100%" 
+                        height="450" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-logo">
+                <img src="images/common/logo.png" alt="Zo-na">
+                <p class="footer-name">ゾーナ</p>
+            </div>
+            
+            <div class="social-links">
+                <a href="https://www.instagram.com/asakusa_ichigo.zo_na/" target="_blank" rel="noopener">
+                    <img src="images/icons/instagram.png" alt="Instagram">
+                </a>
+                <a href="https://www.tiktok.com/@asakusa_zona" target="_blank" rel="noopener">
+                    <img src="images/icons/tiktok.png" alt="TikTok">
+                </a>
+            </div>
+            
+            <p class="copyright">© Zo-na</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>

@@ -1,316 +1,333 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Menu | Zo-na（ゾーナ）</title>
-  <meta name="description" content="Zo-na（ゾーナ）のメニュー。蔵王町の温泉熱栽培いちごを使ったドリンク・スイーツを浅草で。" />
-  <link rel="canonical" href="https://zo-na.jp/menu.html" />
-
-  <!-- favicon / app icon -->
-<link rel="icon" href="/favicon.ico">
-<link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="192x192" href="/images/android-chrome-192x192.png">
-<link rel="icon" type="image/png" sizes="512x512" href="/images/android-chrome-512x512.png">
-
-
-  <link rel="stylesheet" href="style.css" />
-  <script defer src="script.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu - Zo-na（ゾーナ）</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@300;400;600&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="menu-style.css">
 </head>
-
-
 <body>
-
-  <!-- PC用ヘッダー（SPではCSSで非表示） -->
-  <header class="header">
-    <div class="header__inner">
-      <a class="logo" href="index.html#home" aria-label="Zo-na Home">
-        <img class="logo__img" src="images/common/logo.png" alt="Zo-na">
-      </a>
-
-      <button class="hamburger" type="button"
-        aria-label="メニューを開く"
-        aria-expanded="false"
-        aria-controls="site-nav">
-        <span class="hamburger__bar"></span>
-        <span class="hamburger__bar"></span>
-        <span class="hamburger__bar"></span>
-      </button>
+    <!-- Decorative strawberry seed pattern -->
+    <div class="seed-pattern" aria-hidden="true">
+        <div class="seed" style="top: 10%; left: 15%;"></div>
+        <div class="seed" style="top: 25%; left: 85%;"></div>
+        <div class="seed" style="top: 40%; left: 25%;"></div>
+        <div class="seed" style="top: 55%; left: 75%;"></div>
+        <div class="seed" style="top: 70%; left: 40%;"></div>
+        <div class="seed" style="top: 85%; left: 60%;"></div>
+        <div class="seed" style="top: 15%; left: 50%;"></div>
+        <div class="seed" style="top: 35%; left: 65%;"></div>
+        <div class="seed" style="top: 60%; left: 20%;"></div>
+        <div class="seed" style="top: 80%; left: 80%;"></div>
     </div>
 
-<nav id="site-nav" class="nav" aria-label="サイトメニュー">
-  <a class="nav__link" href="index.html#home">Home</a>
-  <a class="nav__link" href="index.html#about">About</a>
-  <a class="nav__link" href="menu.html">Menu</a>
-  <a class="nav__link" href="index.html#eat-in">Eat in Space</a>
-  <a class="nav__link" href="index.html#seasonal">Seasonal Picks</a>
-  <a class="nav__link" href="index.html#visit">Visit</a>
-</nav>
-  </header>
-
-  <main>
-
-   <section class="menu-hero" id="top">
-  <img class="menu-hero__img" src="images/hero/hero-menu.jpeg" alt="Zo-na Menu">
-  
-  <a class="menu-hero__logo" href="index.html" aria-label="Zo-na Home">
-    <img src="images/common/logo.png" alt="Zo-na">
-  </a>
-  
-  <h1 class="menu-hero__title">MENU</h1>
-</section>
-
-    <section class="section menu-page">
-      <div class="container">
-        <p class="menu-page__lead">季節や仕入れ状況により内容が変わる場合があります。</p>
-
-        <nav class="menu-tabs" aria-label="メニューカテゴリ">
-          <a href="#drinks">Drinks</a>
-          <a href="#alcohol">Alcohol</a>
-          <a href="#sweets">Sweets</a>
+    <!-- Header -->
+    <header>
+        <nav>
+            <a href="index.html" class="logo">
+                <img src="images/common/logo.png" alt="Zo-na" class="logo-img">
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="menu.html" class="active">Menu</a></li>
+                <li><a href="index.html#eat-in">Eat in Space</a></li>
+                <li><a href="index.html#seasonal">Seasonal Picks</a></li>
+                <li><a href="index.html#visit">Visit</a></li>
+            </ul>
+            <button class="hamburger" aria-label="メニュー">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </nav>
+    </header>
 
-<h2 class="menu-cat reveal" id="drinks">DRINKS</h2>
-
-<div class="menu-grid-3col">
-  <article class="menu-card">
-    <figure class="menu-card__photo reveal">
-      <img src="images/menu/drinks-strawberry-juice.jpeg" alt="Strawberry Juice">
-    </figure>
-    <h3 class="menu-card__name">Strawberry Juice</h3>
-    <p class="menu-card__sub--jp">いちごジュース</p>
-    <p class="menu-card__price">¥700</p>
-  </article>
-
-  <article class="menu-card">
-    <figure class="menu-card__photo reveal">
-      <img src="images/menu/drinks-condensed-milk-strawberry-juice.jpeg" alt="Condensed Milk Strawberry Juice">
-    </figure>
-    <h3 class="menu-card__name">Condensed Milk Strawberry Juice</h3>
-    <p class="menu-card__sub--jp">練乳いちごジュース</p>
-    <p class="menu-card__price">¥800</p>
-  </article>
-
-  <article class="menu-card">
-    <figure class="menu-card__photo reveal">
-      <img src="images/menu/drinks-strawberry-soda.jpeg" alt="Strawberry Soda">
-    </figure>
-    <h3 class="menu-card__name">Strawberry Soda</h3>
-    <p class="menu-card__sub--jp">いちごソーダ</p>
-    <p class="menu-card__price">¥500</p>
-  </article>
-
-  <article class="menu-card">
-    <figure class="menu-card__photo reveal">
-      <img src="images/menu/drinks-strawberry-milk.jpeg" alt="Strawberry Milk">
-    </figure>
-    <h3 class="menu-card__name">Strawberry Milk</h3>
-    <p class="menu-card__sub--jp">いちごミルク</p>
-    <p class="menu-card__price">¥700</p>
-  </article>
-
-  <article class="menu-card">
-    <figure class="menu-card__photo reveal">
-      <img src="images/menu/drinks-condensed-milk-strawberry-milk.jpeg" alt="Condensed Milk Strawberry Milk">
-    </figure>
-    <h3 class="menu-card__name">Condensed Milk Strawberry Milk</h3>
-    <p class="menu-card__sub--jp">練乳いちごミルク</p>
-    <p class="menu-card__price">¥800</p>
-  </article>
-
-  <article class="menu-card reveal">
-    <figure class="menu-card__photo reveal">
-      <img src="images/menu/drinks-hot-strawberry-milk.jpeg" alt="Hot Strawberry Milk">
-    </figure>
-    <h3 class="menu-card__name">Hot Strawberry Milk</h3>
-    <p class="menu-card__sub--jp">ホットいちごミルク</p>
-    <p class="menu-card__price">¥600</p>
-  </article>
-</div>
-
- <div class="section-divider"></div>
-
-<h2 class="menu-cat reveal" id="alcohol">ALCOHOL</h2>
-
-<div class="menu-center">
-  <article class="menu-card">
-    <figure class="menu-card__photo reveal">
-      <img src="images/menu/alcohol-strawberry-sake.jpeg" alt="Strawberry × SAKE">
-    </figure>
-    <h3 class="menu-card__name">Strawberry × SAKE</h3>
-    <p class="menu-card__sub--jp">いちご酒</p>
-    <p class="menu-card__price">¥800</p>
-  </article>
-</div>
-
-<p class="menu-subnote">Other Alcohol</p>
-<ul class="menu-list-text" aria-label="Alcohol (no photo)">
-  <li class="menu-row">
-    <div class="menu-row__left">
-      <span class="menu-row__en">Draft Beer</span>
-      <span class="menu-row__jp">生ビール</span>
-    </div>
-    <span class="menu-row__price">¥800</span>
-  </li>
-  <li class="menu-row">
-    <div class="menu-row__left">
-      <span class="menu-row__en">RAIDEN KANNUKI IPA</span>
-      <span class="menu-row__jp">雷電 KANNUKI IPA</span>
-    </div>
-    <span class="menu-row__price">¥800</span>
-  </li>
-</ul>
-
- <div class="section-divider"></div>
-
-<h2 class="menu-cat reveal" id="sweets">SWEETS</h2>
-
-<div class="menu-grid-3col">
-  <article class="menu-card">
-    <figure class="menu-card__photo reveal">
-      <img src="images/menu/sweets-strawberry-candy.jpeg" alt="Strawberry Candy">
-    </figure>
-    <h3 class="menu-card__name">Strawberry Candy</h3>
-    <p class="menu-card__sub--jp">いちご飴</p>
-    <p class="menu-card__price">¥400</p>
-  </article>
-
-  <article class="menu-card">
-    <figure class="menu-card__photo reveal">
-      <img src="images/menu/sweets-strawberry-chocolate-milk.jpeg" alt="Strawberry Chocolate (Milk)">
-    </figure>
-    <h3 class="menu-card__name">Strawberry Chocolate (Milk)</h3>
-    <p class="menu-card__sub--jp">いちごチョコ（ミルク）</p>
-    <p class="menu-card__price">¥450</p>
-  </article>
-
-  <article class="menu-card">
-    <figure class="menu-card__photo reveal">
-      <img src="images/menu/sweets-strawberry-chocolate-white.jpeg" alt="Strawberry Chocolate (White)">
-    </figure>
-    <h3 class="menu-card__name">Strawberry Chocolate (White)</h3>
-    <p class="menu-card__sub--jp">いちごチョコ（白）</p>
-    <p class="menu-card__price">¥450</p>
-  </article>
-
-  <article class="menu-card">
-    <figure class="menu-card__photo reveal">
-      <img src="images/menu/sweets-fresh-strawberry-skewer.jpeg" alt="Fresh Strawberry Skewer">
-    </figure>
-    <h3 class="menu-card__name">Fresh Strawberry Skewer</h3>
-    <p class="menu-card__sub--jp">いちご串</p>
-    <p class="menu-card__price">¥350</p>
-  </article>
-
-  <article class="menu-card">
-    <figure class="menu-card__photo reveal">
-      <img src="images/menu/sweets-freezing-strawberry.jpeg" alt="Freezing Strawberry">
-    </figure>
-    <h3 class="menu-card__name">Freezing Strawberry</h3>
-    <p class="menu-card__sub--jp">いちごけずり</p>
-    <p class="menu-card__price">¥1,000</p>
-  </article>
-
-  <article class="menu-card">
-    <figure class="menu-card__photo reveal">
-      <img src="images/menu/sweets-ice-cream-sandwich.jpeg" alt="Ice Cream Sandwich">
-    </figure>
-    <h3 class="menu-card__name">Ice Cream Sandwich</h3>
-    <p class="menu-card__sub--jp">アイスサンド</p>
-    <p class="menu-card__price">¥500</p>
-  </article>
-</div>
-
-
-        <p class="menu-page__note">※表示価格は税込です。※季節や仕入れ状況により内容が変わる場合があります。</p>
-      </div>
+    <!-- Menu Hero -->
+    <section class="menu-hero">
+        <div class="menu-hero-content">
+            <h1>MENU</h1>
+            <p class="subtitle">メニュー</p>
+        </div>
     </section>
-    <div class="section-divider"></div>
 
-<section id="visit" class="section visit reveal">
-  <div class="container">
-    <h2 class="section__title">VISIT</h2>
+    <!-- Menu Section - Sweets -->
+    <section class="menu-section">
+        <div class="container">
+            <h2 class="section-title">SWEETS</h2>
+            <p class="section-subtitle">スイーツ</p>
 
-    <div class="visit__map reveal">
-      <iframe 
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3239.599242670203!2d139.79366457651903!3d35.71147837257743!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188ec6d14858b7%3A0x1b00f20c34bd2c34!2z44CSMTExLTAwMzIg5p2x5Lqs6YO95Y-w5p2x5Yy65rWF6I2J77yR5LiB55uu77yR77yY4oiS77yR77ySIEpT44OT44Or!5e0!3m2!1sja!2sjp!4v1770453693226!5m2!1sja!2sjp" 
-      width="600" 
-      height="450" 
-      style="border:0;" 
-      allowfullscreen="" 
-      loading="lazy" 
-      referrerpolicy="no-referrer-when-downgrade"
-      title="Zo-na map">
+            <div class="menu-grid">
+                <!-- Menu Item 1 -->
+                <div class="menu-item">
+                    <div class="menu-image">
+                        <img src="images/menu/sweets-fresh-strawberry-skewer.jpeg" alt="フレッシュいちご串">
+                    </div>
+                    <div class="menu-info">
+                        <h3 class="menu-name-jp">フレッシュいちご串</h3>
+                        <p class="menu-name-en">Fresh Strawberry Skewer</p>
+                        <p class="menu-description">
+                            新鮮な蔵王のいちごを串に刺したシンプルなスイーツ。いちごそのものの甘さと香りをお楽しみいただけます。
+                        </p>
+                        <p class="menu-price">¥550</p>
+                    </div>
+                </div>
 
-      </iframe>
+                <!-- Menu Item 2 -->
+                <div class="menu-item">
+                    <div class="menu-image">
+                        <img src="images/menu/sweets-ice-cream-sandwich.jpeg" alt="いちごアイスサンド">
+                    </div>
+                    <div class="menu-info">
+                        <h3 class="menu-name-jp">いちごアイスサンド</h3>
+                        <p class="menu-name-en">Strawberry Ice Cream Sandwich</p>
+                        <p class="menu-description">
+                            濃厚ないちごアイスを挟んだサクサクのサンドイッチ。暑い日にぴったりの一品です。
+                        </p>
+                        <p class="menu-price">¥650</p>
+                    </div>
+                </div>
 
-</div>
+                <!-- Menu Item 3 -->
+                <div class="menu-item">
+                    <div class="menu-image">
+                        <img src="images/menu/sweets-freezing-strawberry.jpeg" alt="けずりいちご">
+                    </div>
+                    <div class="menu-info">
+                        <h3 class="menu-name-jp">けずりいちご</h3>
+                        <p class="menu-name-en">Shaved Ice Strawberry</p>
+                        <p class="menu-description">
+                            完熟いちごを急速冷凍してけずった、シャリシャリ食感の新しいスタイルのかき氷。
+                        </p>
+                        <p class="menu-price">¥500</p>
+                    </div>
+                </div>
 
+                <!-- Menu Item 4 -->
+                <div class="menu-item">
+                    <div class="menu-image">
+                        <img src="images/menu/sweets-strawberry-candy.jpeg" alt="いちご飴">
+                    </div>
+                    <div class="menu-info">
+                        <h3 class="menu-name-jp">いちご飴</h3>
+                        <p class="menu-name-en">Strawberry Candy</p>
+                        <p class="menu-description">
+                            パリパリの飴でコーティングした定番の食べ歩きスイーツ。SNS映えも抜群です。
+                        </p>
+                        <p class="menu-price">¥600</p>
+                    </div>
+                </div>
 
- <div class="visit__grid">
-  <!-- 左：所在地・お問い合わせ -->
-  <div class="visit__col visit__col--left">
-    <p class="visit__label">Location &amp; Contact</p>  
-    <p class="visit__en">
-      1-18-12 Asakusa, Taito City, Tokyo 111-0032, Japan<br>
-      info@zo-na.jp
-    </p>
-    <p class="visit__jp">
-      所在地・お問い合わせ<br>
-      東京都台東区浅草1丁目18-12<br>
-      info@zo-na.jp
-    </p>
-  </div>
+                <!-- Menu Item 5 -->
+                <div class="menu-item">
+                    <div class="menu-image">
+                        <img src="images/menu/sweets-strawberry-chocolate-milk.jpeg" alt="いちごチョコミルク">
+                    </div>
+                    <div class="menu-info">
+                        <h3 class="menu-name-jp">いちごチョコミルク</h3>
+                        <p class="menu-name-en">Strawberry Chocolate Milk</p>
+                        <p class="menu-description">
+                            濃厚なチョコレートといちごの甘酸っぱさが絶妙にマッチした一品。
+                        </p>
+                        <p class="menu-price">¥700</p>
+                    </div>
+                </div>
 
-  <!-- 中央：ロゴ・SNS -->
-  <div class="visit__col visit__col--center">
-  <div class="visit__brand-line">
-    <span class="visit__brand-text">Zo-na</span>
-    <span class="visit__brand-jp">ゾーナ</span>
-    <img src="images/common/logo-mark.png" alt="" class="visit__brand-mark">
-  </div>
+                <!-- Menu Item 6 -->
+                <div class="menu-item">
+                    <div class="menu-image">
+                        <img src="images/menu/sweets-strawberry-chocolate-white.jpeg" alt="いちごホワイトチョコ">
+                    </div>
+                    <div class="menu-info">
+                        <h3 class="menu-name-jp">いちごホワイトチョコ</h3>
+                        <p class="menu-name-en">Strawberry White Chocolate</p>
+                        <p class="menu-description">
+                            まろやかなホワイトチョコレートでコーティングした贅沢ないちご。
+                        </p>
+                        <p class="menu-price">¥650</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <div class="visit__sns visit__sns--below">
-    <a href="https://www.instagram.com/asakusa_ichigo.zo_na/" target="_blank" rel="noopener" aria-label="Instagram">
-      <img src="images/icons/instagram.png" alt="">
-    </a>
-    <a href="https://www.tiktok.com/@asakusa_zona" target="_blank" rel="noopener" aria-label="TikTok">
-      <img src="images/icons/tiktok.png" alt="">
-    </a>
-  </div>
-</div>
+    <!-- Menu Section - Drinks -->
+    <section class="menu-section section-alt">
+        <div class="container">
+            <h2 class="section-title">DRINKS</h2>
+            <p class="section-subtitle">ドリンク</p>
 
-  <!-- 右：営業時間 -->
-  <div class="visit__col visit__col--right">
-    <div class="visit__hours">
-      <p class="visit__label">Open Hours</p>
-      <p class="visit__en">
-        Weekdays: 10:30 am – 4:30 pm<br>
-        Weekends &amp; Holidays: 10:00 am – 5:00 pm
-      </p>
-      <p class="visit__note">*Hours may vary depending on season or events.*</p>
-      <p class="visit__jp">
-        営業時間<br>
-        平日 10:30〜16:30 ／ 土日祝 10:00〜17:00<br>
-        <span class="visit__note-jp">※季節やイベントにより変動する場合があります</span>
-      </p>
-    </div>
-  </div>
-</div>
-</section>
-  </main>
+            <div class="menu-grid">
+                <!-- Drink Item 1 -->
+                <div class="menu-item">
+                    <div class="menu-image">
+                        <img src="images/menu/drinks-strawberry-juice.jpeg" alt="いちごジュース">
+                    </div>
+                    <div class="menu-info">
+                        <h3 class="menu-name-jp">いちごジュース</h3>
+                        <p class="menu-name-en">Strawberry Juice</p>
+                        <p class="menu-description">
+                            蔵王産いちごを100%使用した濃厚フレッシュジュース。
+                        </p>
+                        <p class="menu-price">¥600</p>
+                    </div>
+                </div>
 
-<footer class="footer">
-  <div class="container footer__inner">
-        <a class="footer__logo" href="index.html#home" aria-label="Back to top">
-  <img src="images/common/logo.png" alt="Zo-na">
-</a>
-    <p class="footer__copy">© Zo-na</p>
-  </div>
-</footer>
+                <!-- Drink Item 2 -->
+                <div class="menu-item">
+                    <div class="menu-image">
+                        <img src="images/menu/drinks-strawberry-milk.jpeg" alt="いちごミルク">
+                    </div>
+                    <div class="menu-info">
+                        <h3 class="menu-name-jp">いちごミルク</h3>
+                        <p class="menu-name-en">Strawberry Milk</p>
+                        <p class="menu-description">
+                            新鮮ないちごとミルクの優しい組み合わせ。お子様にも人気です。
+                        </p>
+                        <p class="menu-price">¥550</p>
+                    </div>
+                </div>
 
+                <!-- Drink Item 3 -->
+                <div class="menu-item">
+                    <div class="menu-image">
+                        <img src="images/menu/drinks-hot-strawberry-milk.jpeg" alt="ホットいちごミルク">
+                    </div>
+                    <div class="menu-info">
+                        <h3 class="menu-name-jp">ホットいちごミルク</h3>
+                        <p class="menu-name-en">Hot Strawberry Milk</p>
+                        <p class="menu-description">
+                            温かいミルクにいちごの甘さが溶け込んだ、心温まるドリンク。
+                        </p>
+                        <p class="menu-price">¥600</p>
+                    </div>
+                </div>
 
+                <!-- Drink Item 4 -->
+                <div class="menu-item">
+                    <div class="menu-image">
+                        <img src="images/menu/drinks-strawberry-soda.jpeg" alt="いちごソーダ">
+                    </div>
+                    <div class="menu-info">
+                        <h3 class="menu-name-jp">いちごソーダ</h3>
+                        <p class="menu-name-en">Strawberry Soda</p>
+                        <p class="menu-description">
+                            爽やかな炭酸といちごの甘さがマッチした夏にぴったりのドリンク。
+                        </p>
+                        <p class="menu-price">¥550</p>
+                    </div>
+                </div>
 
+                <!-- Drink Item 5 -->
+                <div class="menu-item">
+                    <div class="menu-image">
+                        <img src="images/menu/drinks-condensed-milk-strawberry-juice.jpeg" alt="練乳いちごジュース">
+                    </div>
+                    <div class="menu-info">
+                        <h3 class="menu-name-jp">練乳いちごジュース</h3>
+                        <p class="menu-name-en">Condensed Milk Strawberry Juice</p>
+                        <p class="menu-description">
+                            濃厚な練乳といちごの相性抜群のリッチなジュース。
+                        </p>
+                        <p class="menu-price">¥650</p>
+                    </div>
+                </div>
 
+                <!-- Drink Item 6 -->
+                <div class="menu-item">
+                    <div class="menu-image">
+                        <img src="images/menu/drinks-condensed-milk-strawberry-milk.jpeg" alt="練乳いちごミルク">
+                    </div>
+                    <div class="menu-info">
+                        <h3 class="menu-name-jp">練乳いちごミルク</h3>
+                        <p class="menu-name-en">Condensed Milk Strawberry Milk</p>
+                        <p class="menu-description">
+                            ミルクと練乳のまろやかさが加わった贅沢な一杯。
+                        </p>
+                        <p class="menu-price">¥700</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section - Alcohol -->
+    <section class="menu-section">
+        <div class="container">
+            <h2 class="section-title">ALCOHOL</h2>
+            <p class="section-subtitle">アルコール</p>
+
+            <div class="menu-grid">
+                <!-- Alcohol Item 1 -->
+                <div class="menu-item">
+                    <div class="menu-image">
+                        <img src="images/menu/alcohol-strawberry-sake.jpeg" alt="いちご酒">
+                    </div>
+                    <div class="menu-info">
+                        <h3 class="menu-name-jp">いちご酒</h3>
+                        <p class="menu-name-en">Strawberry Sake</p>
+                        <p class="menu-description">
+                            蔵王のいちごを贅沢に使った、フルーティーで飲みやすいお酒。
+                        </p>
+                        <p class="menu-price">¥800</p>
+                    </div>
+                </div>
+
+                <!-- Alcohol Item 2 - No Image -->
+                <div class="menu-item menu-item-no-image">
+                    <div class="menu-info">
+                        <h3 class="menu-name-jp">生ビール</h3>
+                        <p class="menu-name-en">Draft Beer</p>
+                        <p class="menu-description">
+                            キリっと冷えた生ビール。いちごスイーツとの意外な相性をお楽しみください。
+                        </p>
+                        <p class="menu-price">¥800</p>
+                    </div>
+                </div>
+
+                <!-- Alcohol Item 3 - No Image -->
+                <div class="menu-item menu-item-no-image">
+                    <div class="menu-info">
+                        <h3 class="menu-name-jp">雷電 KANNUKI IPA</h3>
+                        <p class="menu-name-en">RAIDEN KANNUKI IPA</p>
+                        <p class="menu-description">
+                            ホップの華やかな香りとコクが特徴のクラフトビール。
+                        </p>
+                        <p class="menu-price">¥800</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-note">
+                <p>※表示価格は税込です。※季節や仕入れ状況により内容が変わる場合があります。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-logo">
+                <img src="images/common/logo.png" alt="Zo-na">
+                <p class="footer-name">ゾーナ</p>
+            </div>
+            
+            <div class="social-links">
+                <a href="https://www.instagram.com/asakusa_ichigo.zo_na/" target="_blank" rel="noopener">
+                    <img src="images/icons/instagram.png" alt="Instagram">
+                </a>
+                <a href="https://www.tiktok.com/@asakusa_zona" target="_blank" rel="noopener">
+                    <img src="images/icons/tiktok.png" alt="TikTok">
+                </a>
+            </div>
+            
+            <p class="copyright">© Zo-na</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
