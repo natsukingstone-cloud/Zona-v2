@@ -6,7 +6,7 @@
     <title>Menu - Zo-na（ゾーナ）</title>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@300;400;600&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@300;400;600;700&family=Noto+Sans+JP:wght@300;400;500;700&family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -26,54 +26,43 @@
             <a href="index.html" class="logo">
                 <img src="images/common/logo.png" alt="Zo-na" class="logo-img">
             </a>
-            <ul class="nav-links">
-                <li><a href="index.html#about">About</a></li>
-                <li><a href="menu.html">Menu</a></li>
-                <li><a href="index.html#eat-in">Eat in Space</a></li>
-                <li><a href="index.html#seasonal">Seasonal Picks</a></li>
-                <li><a href="index.html#visit">Visit</a></li>
-            </ul>
-            <div class="header-social">
-                <a href="https://www.instagram.com/asakusa_ichigo.zo_na/" target="_blank" rel="noopener">
-                    <img src="images/icons/instagram.png" alt="Instagram">
-                </a>
-                <a href="https://www.tiktok.com/@asakusa_zona" target="_blank" rel="noopener">
-                    <img src="images/icons/tiktok.png" alt="TikTok">
-                </a>
-            </div>
             <button class="hamburger" aria-label="メニュー">
                 <span></span>
                 <span></span>
                 <span></span>
             </button>
-        </nav>
-        <div class="mobile-menu">
-            <div class="mobile-social">
-                <a href="https://www.instagram.com/asakusa_ichigo.zo_na/" target="_blank" rel="noopener">
-                    <img src="images/icons/instagram.png" alt="Instagram">
-                </a>
-                <a href="https://www.tiktok.com/@asakusa_zona" target="_blank" rel="noopener">
-                    <img src="images/icons/tiktok.png" alt="TikTok">
-                </a>
-            </div>
-            <ul>
+            <ul class="nav-links">
+                <li class="nav-social-sp">
+                    <a href="https://www.instagram.com/asakusa_ichigo.zo_na/" target="_blank" rel="noopener" aria-label="Instagram">
+                        <img src="images/icons/instagram.png" alt="Instagram">
+                    </a>
+                    <a href="https://www.tiktok.com/@asakusa_zona" target="_blank" rel="noopener" aria-label="TikTok">
+                        <img src="images/icons/tiktok.png" alt="TikTok">
+                    </a>
+                </li>
                 <li><a href="index.html#about">About</a></li>
                 <li><a href="menu.html">Menu</a></li>
                 <li><a href="index.html#eat-in">Eat in Space</a></li>
                 <li><a href="index.html#seasonal">Seasonal Picks</a></li>
                 <li><a href="index.html#visit">Visit</a></li>
             </ul>
-        </div>
+            <div class="nav-social">
+                <a href="https://www.instagram.com/asakusa_ichigo.zo_na/" target="_blank" rel="noopener" aria-label="Instagram">
+                    <img src="images/icons/instagram.png" alt="Instagram">
+                </a>
+                <a href="https://www.tiktok.com/@asakusa_zona" target="_blank" rel="noopener" aria-label="TikTok">
+                    <img src="images/icons/tiktok.png" alt="TikTok">
+                </a>
+            </div>
+        </nav>
     </header>
 
     <!-- Hero Section for Menu -->
     <section class="menu-hero">
-        <div class="hero-slide active">
-            <img src="images/hero/hero-menu.jpeg" alt="Zo-na Menu">
-        </div>
-        <div class="hero-overlay-menu"></div>
+        <img src="images/hero/hero-menu.jpeg" alt="Zo-na Menu">
+        <div class="hero-overlay"></div>
         <div class="hero-content">
-            <h1 class="hero-title">MENU</h1>
+            <h1 class="section-title" style="color: white; text-shadow: 3px 3px 15px rgba(0,0,0,0.7);">MENU</h1>
         </div>
     </section>
 
@@ -84,7 +73,6 @@
             <p class="section-subtitle">Strawberry Drinks</p>
 
             <div class="menu-grid">
-                <!-- Drink 1 -->
                 <div class="menu-item">
                     <div class="menu-image">
                         <img src="images/menu/drinks-strawberry-milk.jpeg" alt="いちごミルク">
@@ -96,7 +84,6 @@
                     </div>
                 </div>
 
-                <!-- Drink 2 -->
                 <div class="menu-item">
                     <div class="menu-image">
                         <img src="images/menu/drinks-strawberry-juice.jpeg" alt="いちごジュース">
@@ -108,7 +95,6 @@
                     </div>
                 </div>
 
-                <!-- Drink 3 -->
                 <div class="menu-item">
                     <div class="menu-image">
                         <img src="images/menu/drinks-condensed-milk-strawberry-milk.jpeg" alt="練乳いちごミルク">
@@ -120,7 +106,6 @@
                     </div>
                 </div>
 
-                <!-- Drink 4 -->
                 <div class="menu-item">
                     <div class="menu-image">
                         <img src="images/menu/drinks-condensed-milk-strawberry-juice.jpeg" alt="練乳いちごジュース">
@@ -132,7 +117,6 @@
                     </div>
                 </div>
 
-                <!-- Drink 5 -->
                 <div class="menu-item">
                     <div class="menu-image">
                         <img src="images/menu/drinks-hot-strawberry-milk.jpeg" alt="ホットいちごミルク">
@@ -144,7 +128,6 @@
                     </div>
                 </div>
 
-                <!-- Drink 6 -->
                 <div class="menu-item">
                     <div class="menu-image">
                         <img src="images/menu/drinks-strawberry-soda.jpeg" alt="いちごソーダ">
@@ -166,7 +149,6 @@
             <p class="section-subtitle">Strawberry Sweets</p>
 
             <div class="menu-grid">
-                <!-- Sweet 1 -->
                 <div class="menu-item">
                     <div class="menu-image">
                         <img src="images/menu/sweets-fresh-strawberry-skewer.jpeg" alt="フレッシュいちごスティック">
@@ -178,7 +160,6 @@
                     </div>
                 </div>
 
-                <!-- Sweet 2 -->
                 <div class="menu-item">
                     <div class="menu-image">
                         <img src="images/menu/sweets-freezing-strawberry.jpeg" alt="けずりいちご">
@@ -190,7 +171,6 @@
                     </div>
                 </div>
 
-                <!-- Sweet 3 -->
                 <div class="menu-item">
                     <div class="menu-image">
                         <img src="images/menu/sweets-strawberry-candy.jpeg" alt="いちご飴">
@@ -202,7 +182,6 @@
                     </div>
                 </div>
 
-                <!-- Sweet 4 -->
                 <div class="menu-item">
                     <div class="menu-image">
                         <img src="images/menu/sweets-strawberry-chocolate-milk.jpeg" alt="いちごチョコレート（ミルク）">
@@ -214,7 +193,6 @@
                     </div>
                 </div>
 
-                <!-- Sweet 5 -->
                 <div class="menu-item">
                     <div class="menu-image">
                         <img src="images/menu/sweets-strawberry-chocolate-white.jpeg" alt="いちごチョコレート（ホワイト）">
@@ -226,7 +204,6 @@
                     </div>
                 </div>
 
-                <!-- Sweet 6 -->
                 <div class="menu-item">
                     <div class="menu-image">
                         <img src="images/menu/sweets-ice-cream-sandwich.jpeg" alt="いちごアイスサンド">
@@ -248,7 +225,6 @@
             <p class="section-subtitle">Alcoholic Beverages</p>
 
             <div class="menu-grid">
-                <!-- Alcohol 1 -->
                 <div class="menu-item">
                     <div class="menu-image">
                         <img src="images/menu/alcohol-strawberry-sake.jpeg" alt="いちご酒">
@@ -260,7 +236,6 @@
                     </div>
                 </div>
 
-                <!-- Alcohol 2 - No Image -->
                 <div class="menu-item menu-item-no-image">
                     <div class="menu-info">
                         <h3>生ビール</h3>
@@ -269,7 +244,6 @@
                     </div>
                 </div>
 
-                <!-- Alcohol 3 - No Image -->
                 <div class="menu-item menu-item-no-image">
                     <div class="menu-info">
                         <h3>雷電 KANNUKI IPA</h3>
@@ -282,31 +256,31 @@
     </section>
 
     <!-- Notice -->
-    <section class="alcohol-notice">
+    <section class="menu-notice">
         <div class="container">
             <p>※表示価格は税込です。※季節や仕入れ状況により内容が変わる場合があります。</p>
         </div>
     </section>
 
-    <!-- Footer Small -->
-    <section class="menu-footer">
+    <!-- Footer -->
+    <footer>
         <div class="container">
-            <div class="footer-content-small">
-                <div class="footer-logo-small">
-                    <img src="images/common/logo.png" alt="Zo-na">
-                </div>
-                <div class="footer-social-small">
-                    <a href="https://www.instagram.com/asakusa_ichigo.zo_na/" target="_blank" rel="noopener">
+            <div class="footer-content">
+                <a href="index.html" aria-label="TOPへ戻る">
+                    <img src="images/common/logo-mark.png" alt="Zo-na" class="footer-logo-mark">
+                </a>
+                <div class="footer-social">
+                    <a href="https://www.instagram.com/asakusa_ichigo.zo_na/" target="_blank" rel="noopener" aria-label="Instagram">
                         <img src="images/icons/instagram.png" alt="Instagram">
                     </a>
-                    <a href="https://www.tiktok.com/@asakusa_zona" target="_blank" rel="noopener">
+                    <a href="https://www.tiktok.com/@asakusa_zona" target="_blank" rel="noopener" aria-label="TikTok">
                         <img src="images/icons/tiktok.png" alt="TikTok">
                     </a>
                 </div>
             </div>
-            <p class="copyright">© Zo-na</p>
+            <p class="copyright" style="margin-top: 2rem;">© Zo-na</p>
         </div>
-    </section>
+    </footer>
 
     <script src="script.js"></script>
 </body>

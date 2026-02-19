@@ -6,7 +6,7 @@
     <title>Zo-na（ゾーナ）｜蔵王町の温泉熱栽培いちごスイーツを浅草で</title>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@300;400;600&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@300;400;600;700&family=Noto+Sans+JP:wght@300;400;500;700&family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -22,8 +22,6 @@
         <div class="seed" style="top: 35%; left: 65%;"></div>
         <div class="seed" style="top: 60%; left: 20%;"></div>
         <div class="seed" style="top: 80%; left: 80%;"></div>
-        <div class="seed" style="top: 20%; left: 45%;"></div>
-        <div class="seed" style="top: 50%; left: 55%;"></div>
     </div>
 
     <!-- Header -->
@@ -32,44 +30,35 @@
             <a href="#home" class="logo">
                 <img src="images/common/logo.png" alt="Zo-na" class="logo-img">
             </a>
-            <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="menu.html">Menu</a></li>
-                <li><a href="#eat-in">Eat in Space</a></li>
-                <li><a href="#seasonal">Seasonal Picks</a></li>
-                <li><a href="#visit">Visit</a></li>
-            </ul>
-            <div class="header-social">
-                <a href="https://www.instagram.com/asakusa_ichigo.zo_na/" target="_blank" rel="noopener">
-                    <img src="images/icons/instagram.png" alt="Instagram">
-                </a>
-                <a href="https://www.tiktok.com/@asakusa_zona" target="_blank" rel="noopener">
-                    <img src="images/icons/tiktok.png" alt="TikTok">
-                </a>
-            </div>
             <button class="hamburger" aria-label="メニュー">
                 <span></span>
                 <span></span>
                 <span></span>
             </button>
-        </nav>
-        <div class="mobile-menu">
-            <div class="mobile-social">
-                <a href="https://www.instagram.com/asakusa_ichigo.zo_na/" target="_blank" rel="noopener">
-                    <img src="images/icons/instagram.png" alt="Instagram">
-                </a>
-                <a href="https://www.tiktok.com/@asakusa_zona" target="_blank" rel="noopener">
-                    <img src="images/icons/tiktok.png" alt="TikTok">
-                </a>
-            </div>
-            <ul>
+            <ul class="nav-links">
+                <li class="nav-social-sp">
+                    <a href="https://www.instagram.com/asakusa_ichigo.zo_na/" target="_blank" rel="noopener" aria-label="Instagram">
+                        <img src="images/icons/instagram.png" alt="Instagram">
+                    </a>
+                    <a href="https://www.tiktok.com/@asakusa_zona" target="_blank" rel="noopener" aria-label="TikTok">
+                        <img src="images/icons/tiktok.png" alt="TikTok">
+                    </a>
+                </li>
                 <li><a href="#about">About</a></li>
                 <li><a href="menu.html">Menu</a></li>
                 <li><a href="#eat-in">Eat in Space</a></li>
                 <li><a href="#seasonal">Seasonal Picks</a></li>
                 <li><a href="#visit">Visit</a></li>
             </ul>
-        </div>
+            <div class="nav-social">
+                <a href="https://www.instagram.com/asakusa_ichigo.zo_na/" target="_blank" rel="noopener" aria-label="Instagram">
+                    <img src="images/icons/instagram.png" alt="Instagram">
+                </a>
+                <a href="https://www.tiktok.com/@asakusa_zona" target="_blank" rel="noopener" aria-label="TikTok">
+                    <img src="images/icons/tiktok.png" alt="TikTok">
+                </a>
+            </div>
+        </nav>
     </header>
 
     <!-- Hero Section -->
@@ -92,8 +81,12 @@
         <div class="hero-overlay"></div>
         
         <div class="hero-content">
-            <h1 class="hero-title">蔵王町のいちごを、浅草で。</h1>
-            <p class="hero-subtitle">温泉熱栽培のいちごを使った、食べ歩き＆イートインのいちごスイーツ。</p>
+            <h1 class="hero-main-title">蔵王町のいちごを、浅草で。</h1>
+            <p class="hero-subtitle-text">温泉熱栽培のいちごを使った、食べ歩き＆イートインのいちごスイーツ。</p>
+            <div class="hero-buttons">
+                <a href="#about" class="btn-primary">About</a>
+                <a href="menu.html" class="btn-secondary">Menu</a>
+            </div>
         </div>
     </section>
 
@@ -104,7 +97,7 @@
             <p class="section-subtitle">STRAWBERRY SWEETS & DRINKS FROM ZAO, MIYAGI</p>
             <p class="section-intro">蔵王の温泉熱で育ったいちごを、浅草で新しいスイーツのかたちに。</p>
             
-            <div class="about-content">
+            <div class="about-grid">
                 <div class="about-image">
                     <img src="images/about/about-farm.jpeg" alt="蔵王町のいちご農園">
                 </div>
@@ -128,17 +121,15 @@
             <h2 class="section-title">EAT in SPACE</h2>
             <p class="section-subtitle">A cozy eat-in space where you can relax and enjoy strawberry sweets.</p>
             
-            <div class="eat-in-featured">
-                <div class="eat-in-image-full">
-                    <img src="images/about/about-eatin.jpeg" alt="Eat in Space">
+            <div class="eat-in-grid">
+                <div class="eat-in-image">
+                    <img src="images/about/about-eatin.jpeg" alt="店内イートインスペース">
                 </div>
-                <div class="eat-in-description">
-                    <div class="eat-in-text-box">
-                        <h3>ゆったりとした空間で</h3>
-                        <p class="subtitle-en">Relax & Enjoy</p>
-                        <p>店内にはイートインスペースもご用意しています。カラフルな鞠のランプが優しく灯る店内で、ゆっくりといちごスイーツをお楽しみください。</p>
-                        <p class="text-en">Our cozy eat-in space features colorful lanterns and a welcoming atmosphere. Perfect for savoring our strawberry sweets at your own pace.</p>
-                    </div>
+                <div class="eat-in-text">
+                    <h3>ゆったりとした空間で</h3>
+                    <p class="subtitle-en">Relax & Enjoy</p>
+                    <p>店内にはイートインスペースもご用意しています。カラフルな鞠のランプが優しく灯る店内で、ゆっくりといちごスイーツをお楽しみください。</p>
+                    <p class="text-en">Our cozy eat-in space features colorful lanterns and a welcoming atmosphere. Perfect for savoring our strawberry sweets at your own pace.</p>
                 </div>
             </div>
         </div>
@@ -149,7 +140,7 @@
         <div class="container">
             <h2 class="section-title">SEASONAL PICKS</h2>
             
-            <div class="seasonal-item">
+            <div class="seasonal-grid">
                 <div class="seasonal-image">
                     <img src="images/seasonal/seasonal-01.jpeg" alt="いちごクリーム大福">
                 </div>
@@ -169,44 +160,59 @@
             <h2 class="section-title">VISIT</h2>
             <p class="section-subtitle">Location & Contact</p>
             
-            <div class="visit-content">
+            <div class="visit-grid">
                 <div class="visit-info">
-                    <div class="info-block">
-                        <h4>所在地・お問い合わせ</h4>
-                        <p class="info-en">Location & Contact</p>
-                        <p>東京都台東区浅草1丁目18-12</p>
-                        <p class="info-en">1-18-12 Asakusa, Taito City, Tokyo 111-0032, Japan</p>
-                        <p><a href="mailto:info@zo-na.jp">info@zo-na.jp</a></p>
-                    </div>
-                    
-                    <div class="info-block">
-                        <h4>営業時間</h4>
-                        <p class="info-en">Open Hours</p>
-                        <p>平日 10:30〜16:30</p>
-                        <p class="info-en">Weekdays: 10:30 AM – 4:30 PM</p>
-                        <p>土日祝 10:00〜17:00</p>
-                        <p class="info-en">Weekends & Holidays: 10:00 AM – 5:00 PM</p>
-                        <p class="note">※季節やイベントにより変動する場合があります</p>
-                    </div>
+                    <h4>所在地・お問い合わせ</h4>
+                    <p class="subtitle-en">Location & Contact</p>
+                    <p>東京都台東区浅草1丁目18-12</p>
+                    <p class="text-en">1-18-12 Asakusa, Taito City, Tokyo 111-0032, Japan</p>
+                    <p><a href="/cdn-cgi/l/email-protection#6b02050d042b110446050a45011b"><span class="__cf_email__" data-cfemail="f990979f96b98396d49798d79389">[email&#160;protected]</span></a></p>
                 </div>
                 
-                <div class="map-container">
-                    <iframe 
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3239.6542891234567!2d139.79501231525893!3d35.71137098019234!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188ec1a4463df1%3A0x6c0d289a8292810d!2z5rWF6I2J77yR5LiB55uu77yR77yY4oiS77yR77yS!5e0!3m2!1sja!2sjp!4v1234567890123!5m2!1sja!2sjp" 
-                        width="100%" 
-                        height="450" 
-                        style="border:0;" 
-                        allowfullscreen="" 
-                        loading="lazy" 
-                        referrerpolicy="no-referrer-when-downgrade">
-                    </iframe>
+                <div class="visit-info">
+                    <h4>営業時間</h4>
+                    <p class="subtitle-en">Open Hours</p>
+                    <p>平日 10:30〜16:30</p>
+                    <p class="text-en">Weekdays: 10:30 AM – 4:30 PM</p>
+                    <p>土日祝 10:00〜17:00</p>
+                    <p class="text-en">Weekends & Holidays: 10:00 AM – 5:00 PM</p>
+                    <p class="note">※季節やイベントにより変動する場合があります</p>
                 </div>
-                
-                <p class="copyright">© Zo-na</p>
+            </div>
+            
+            <!-- Google Map -->
+            <div class="visit-map">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3239.058!2d139.7948!3d35.7115!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzXCsDQyJzQxLjQiTiAxMznCsDQ3JzQxLjMiRQ!5e0!3m2!1sja!2sjp!4v1234567890" 
+                    width="100%" 
+                    height="400" 
+                    style="border:0; border-radius: 20px;" 
+                    allowfullscreen="" 
+                    loading="lazy">
+                </iframe>
             </div>
         </div>
     </section>
 
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <a href="#home" aria-label="TOPへ戻る">
+                    <img src="images/common/logo-mark.png" alt="Zo-na" class="footer-logo-mark">
+                </a>
+                <div class="footer-social">
+                    <a href="https://www.instagram.com/asakusa_ichigo.zo_na/" target="_blank" rel="noopener" aria-label="Instagram">
+                        <img src="images/icons/instagram.png" alt="Instagram">
+                    </a>
+                    <a href="https://www.tiktok.com/@asakusa_zona" target="_blank" rel="noopener" aria-label="TikTok">
+                        <img src="images/icons/tiktok.png" alt="TikTok">
+                    </a>
+                </div>
+            </div>
+            <p class="copyright" style="margin-top: 2rem;">© Zo-na</p>
+        </div>
+    </footer>
     <script src="script.js"></script>
 </body>
 </html>
