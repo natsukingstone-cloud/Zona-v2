@@ -131,8 +131,9 @@ nav {
 
 .nav-links a {
     font-family: var(--font-handwritten);
-    font-size: 1.2rem;
+    font-size: 1.15rem;
     font-weight: 600;
+    letter-spacing: 0.05em;
     transition: all 0.3s ease;
     position: relative;
     padding: 0.5rem 0;
