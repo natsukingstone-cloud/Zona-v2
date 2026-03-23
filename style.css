@@ -89,16 +89,16 @@ header {
     top: 0;
     width: 100%;
     padding: 1.2rem 5%;
-    background: rgba(255, 255, 255, 0.98);
+    background: var(--strawberry-red);
     backdrop-filter: blur(10px);
     z-index: 1000;
-    border-bottom: 1px solid rgba(230, 57, 70, 0.08);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
     transition: all 0.3s ease;
 }
 
 header.scrolled {
     padding: 0.8rem 5%;
-    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.15);
 }
 
 nav {
@@ -137,7 +137,7 @@ nav {
     transition: all 0.3s ease;
     position: relative;
     padding: 0.5rem 0;
-    color: var(--strawberry-red);
+    color: white;
 }
 
 .nav-links a::after {
@@ -147,12 +147,12 @@ nav {
     left: 0;
     width: 0;
     height: 2px;
-    background: var(--strawberry-red);
+    background: white;
     transition: width 0.3s ease;
 }
 
 .nav-links a:hover {
-    color: var(--deep-red);
+    color: rgba(255, 255, 255, 0.75);
 }
 
 .nav-links a:hover::after {
@@ -347,6 +347,105 @@ section {
     font-size: 1rem;
 }
 
+/* Menu Preview Section (TOP page) */
+.menu-preview-section {
+    background: var(--white);
+}
+
+.menu-preview-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.menu-preview-item {
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    background: var(--white);
+    border-radius: 20px;
+    padding: 1rem 1rem 1.2rem;
+    box-shadow: 0 8px 30px rgba(230, 57, 70, 0.08);
+}
+
+.menu-preview-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 50px rgba(230, 57, 70, 0.16);
+}
+
+.menu-preview-image {
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 0.8rem;
+}
+
+.menu-preview-image img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.menu-preview-item:hover .menu-preview-image img {
+    transform: scale(1.08);
+}
+
+.menu-preview-name {
+    font-family: var(--font-handwritten);
+    font-size: 1.1rem;
+    color: var(--charcoal);
+    font-weight: 600;
+    margin-bottom: 0.2rem;
+}
+
+.menu-preview-en {
+    font-size: 0.9rem;
+    color: var(--text-gray);
+    font-style: italic;
+}
+
+.menu-preview-cta {
+    text-align: center;
+    margin-top: 3rem;
+}
+
+.btn-menu-full {
+    display: inline-block;
+    padding: 1.1rem 3.5rem;
+    background: var(--strawberry-red);
+    color: white;
+    border-radius: 50px;
+    font-family: var(--font-handwritten);
+    font-size: 1.15rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 25px rgba(230, 57, 70, 0.25);
+}
+
+.btn-menu-full:hover {
+    background: var(--deep-red);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 35px rgba(230, 57, 70, 0.35);
+}
+
+@media (max-width: 1024px) {
+    .menu-preview-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .menu-preview-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.2rem;
+    }
+    .menu-preview-image img {
+        height: 150px;
+    }
+}
+
 /* About Section */
 .about-section {
     background: var(--white);
@@ -358,6 +457,16 @@ section {
     gap: 5rem;
     align-items: center;
     margin-bottom: 4rem;
+    padding: 3rem;
+    border-radius: 25px;
+    background: linear-gradient(135deg, var(--white), var(--light-pink));
+    box-shadow: 0 10px 40px rgba(230, 57, 70, 0.08);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.about-grid:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 60px rgba(230, 57, 70, 0.14);
 }
 
 .about-image {
@@ -739,6 +848,10 @@ footer {
         gap: 3rem;
     }
     
+    .about-grid {
+        padding: 2rem;
+    }
+
     .seasonal-grid {
         padding: 3rem;
     }
@@ -847,6 +960,9 @@ footer {
 
 .visit-map iframe {
     box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    display: block;
+    width: 100%;
+    border-radius: 20px;
 }
 
 /* Nav Social SP list item */
@@ -866,15 +982,33 @@ footer {
     display: flex;
     align-items: center;
     transition: transform 0.3s ease;
+    opacity: 0.9;
 }
 
 .nav-social a:hover {
     transform: scale(1.15);
+    opacity: 1;
 }
 
 .nav-social a img {
     width: 28px;
     height: 28px;
+    border-radius: 6px;
+}
+
+/* TikTokアイコン（PC）をSPと同じ濃いピンクに */
+.nav-tiktok {
+    background: #FF0050 !important;
+    border-radius: 8px;
+    width: 28px;
+    height: 28px;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-tiktok svg {
+    display: block;
 }
 
 /* Footer horizontal layout */
@@ -912,7 +1046,7 @@ footer {
 .hamburger span {
     width: 100%;
     height: 3px;
-    background-color: #d62839;
+    background-color: white;
     border-radius: 3px;
     transition: all 0.3s ease;
     transform-origin: center;
@@ -953,12 +1087,12 @@ footer {
         width: 70%;
         max-width: 300px;
         height: calc(100vh - 80px);
-        background: white;
+        background: var(--strawberry-red);
         flex-direction: column;
         align-items: center;
         justify-content: flex-start;
-        padding-top: 2rem;
-        box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+        padding-top: 1.5rem;
+        box-shadow: -5px 0 15px rgba(0,0,0,0.2);
         transition: right 0.3s ease;
         z-index: 1000;
     }
@@ -968,11 +1102,12 @@ footer {
     }
     
     .nav-links li {
-        margin: 0.6rem 0;
+        margin: 0.4rem 0;
     }
 
     .nav-links a {
         font-size: 1.2rem;
+        color: white;
     }
     
     .hero-main-title {
@@ -983,8 +1118,17 @@ footer {
         font-size: 1rem;
     }
     
+    .visit-map {
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+        width: 100%;
+    }
+
     .visit-map iframe {
-        height: 300px;
+        width: 100% !important;
+        height: 320px !important;
+        border-radius: 12px !important;
+        display: block !important;
     }
 
     /* SP: nav-social をハンバーガーメニュー内の上部に */
@@ -996,18 +1140,186 @@ footer {
         display: flex !important;
         gap: 1.5rem;
         justify-content: center;
-        margin-bottom: 1rem;
+        margin-bottom: 0.5rem;
         padding: 0;
     }
 
     .nav-links .nav-social-sp a img {
         width: 36px;
         height: 36px;
+        border-radius: 8px;
+        mix-blend-mode: screen;
+        opacity: 0.95;
     }
 
     /* SP: フッターは縦並びに戻す */
     .footer-content {
         flex-direction: column !important;
-        gap: 1.5rem;
+        gap: 1rem;
+    }
+
+    footer {
+        padding: 2rem 0 1.5rem;
+    }
+
+    .footer-logo-mark {
+        width: 60px !important;
+    }
+
+    .footer-social a img {
+        width: 32px;
+        height: 32px;
+    }
+}
+
+/* ========================================
+   パララックス & アニメーション追加
+======================================== */
+
+/* セクション画像: パララックス用クリップ */
+.about-image,
+.about-image-full,
+.eat-in-image,
+.seasonal-image {
+    overflow: hidden;
+}
+
+.about-image img,
+.about-image-full img,
+.eat-in-image img,
+.seasonal-image img {
+    will-change: transform;
+    transition: none !important;
+}
+
+/* ===== スクロール出現アニメーション（PC・SP 共通） ===== */
+
+/* フェードアップ（デフォルト） */
+.anim-hidden {
+    opacity: 0;
+    transform: translateY(36px);
+    transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+                transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.anim-hidden.anim-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 左から（PC） */
+.anim-from-left {
+    opacity: 0;
+    transform: translateX(-56px);
+    transition: opacity 0.95s cubic-bezier(0.22, 1, 0.36, 1),
+                transform 0.95s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.anim-from-left.anim-visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* 右から（PC） */
+.anim-from-right {
+    opacity: 0;
+    transform: translateX(56px);
+    transition: opacity 0.95s cubic-bezier(0.22, 1, 0.36, 1),
+                transform 0.95s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.anim-from-right.anim-visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* SP: 左右スライドをフェードアップに統一 */
+@media (max-width: 768px) {
+    .anim-from-left,
+    .anim-from-right {
+        opacity: 0;
+        transform: translateY(28px);
+        transition: opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1),
+                    transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .anim-from-left.anim-visible,
+    .anim-from-right.anim-visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* セクションタイトル（PC のみ横流れ視差） */
+.section-title {
+    will-change: transform;
+}
+@media (max-width: 768px) {
+    .section-title {
+        will-change: auto;
+        transform: none !important;
+    }
+}
+
+/* ===== ヒーロー視差: overflow 制御 ===== */
+.hero         { overflow: hidden; }
+.hero-slider  { will-change: transform; }
+.hero-content { will-change: transform, opacity; }
+
+/* ===== SP: Hero テキスト ダイナミックフェードアップ ===== */
+@media (max-width: 768px) {
+    .hero-main-title,
+    .hero-subtitle-text {
+        opacity: 0;
+        transform: translateY(60px);
+        animation: spHeroFadeUp 1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
+    .hero-main-title    { animation-delay: 0.3s; }
+    .hero-subtitle-text { animation-delay: 0.6s; }
+
+    @keyframes spHeroFadeUp {
+        0%   { opacity: 0; transform: translateY(60px); }
+        100% { opacity: 1; transform: translateY(0);    }
+    }
+}
+
+/* ===== セクション overflow 制御（PC のみ） ===== */
+@media (min-width: 769px) {
+    .about-section,
+    .eat-in-section,
+    .seasonal-section,
+    .visit-section {
+        overflow: hidden;
+    }
+}
+
+/* seasonal hover と parallax 競合解消 */
+.seasonal-grid:hover .seasonal-image img {
+    transform: none;
+}
+
+/* ===== SP: セクション通常スクロール（scroll-snap廃止） ===== */
+@media (max-width: 768px) {
+    html {
+        scroll-snap-type: none;
+    }
+
+    #eat-in,
+    #seasonal,
+    #visit {
+        position: static;
+        z-index: auto;
+        border-radius: 0;
+        box-shadow: none;
+        padding-bottom: 0;
+        overflow: visible;
+    }
+
+    .eat-in-section,
+    .seasonal-section,
+    .visit-section {
+        overflow: visible;
+    }
+
+    /* フッターをstickyセクションより前面に */
+    footer {
+        position: relative;
+        z-index: 13;
     }
 }
