@@ -249,8 +249,25 @@ nav {
     border-radius: 50px;
     font-weight: 600;
     font-size: 1.1rem;
-    transition: all 0.3s ease;
     cursor: pointer;
+    /* iOS対応 */
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+    user-select: none;
+    -webkit-user-select: none;
+    /* トランジション最適化 */
+    transition:
+        background-color 0.15s ease,
+        transform 0.15s ease,
+        box-shadow 0.15s ease,
+        filter 0.15s ease;
+}
+
+/* タップ・クリック時の押し込み感 */
+.btn-primary:active,
+.btn-secondary:active {
+    transform: scale(0.96) translateY(1px);
+    filter: brightness(0.88);
 }
 
 .btn-primary {
@@ -259,10 +276,13 @@ nav {
     box-shadow: 0 10px 30px rgba(230, 57, 70, 0.2);
 }
 
-.btn-primary:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 15px 40px rgba(230, 57, 70, 0.3);
-    background: var(--deep-red);
+/* PCのみホバー（スマホでホバーが残らないよう） */
+@media (hover: hover) and (pointer: fine) {
+    .btn-primary:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 15px 40px rgba(230, 57, 70, 0.35);
+        background: var(--deep-red);
+    }
 }
 
 .btn-secondary {
@@ -271,10 +291,13 @@ nav {
     border: 2px solid var(--strawberry-red);
 }
 
-.btn-secondary:hover {
-    background: var(--strawberry-red);
-    color: white;
-    transform: translateY(-3px);
+@media (hover: hover) and (pointer: fine) {
+    .btn-secondary:hover {
+        background: var(--strawberry-red);
+        color: white;
+        transform: translateY(-3px);
+        box-shadow: 0 10px 25px rgba(230, 57, 70, 0.2);
+    }
 }
 
 /* Section Styling */
@@ -420,14 +443,32 @@ section {
     font-size: 1.15rem;
     font-weight: 600;
     letter-spacing: 0.05em;
-    transition: all 0.3s ease;
     box-shadow: 0 8px 25px rgba(230, 57, 70, 0.25);
+    /* iOS対応 */
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+    user-select: none;
+    cursor: pointer;
+    /* トランジション最適化 */
+    transition:
+        background-color 0.15s ease,
+        transform 0.15s ease,
+        box-shadow 0.15s ease;
 }
 
-.btn-menu-full:hover {
-    background: var(--deep-red);
-    transform: translateY(-3px);
-    box-shadow: 0 12px 35px rgba(230, 57, 70, 0.35);
+/* タップ時の押し込み感 */
+.btn-menu-full:active {
+    transform: scale(0.96) translateY(1px);
+    filter: brightness(0.88);
+}
+
+/* PCのみホバー */
+@media (hover: hover) and (pointer: fine) {
+    .btn-menu-full:hover {
+        background: var(--deep-red);
+        transform: translateY(-3px);
+        box-shadow: 0 12px 35px rgba(230, 57, 70, 0.35);
+    }
 }
 
 @media (max-width: 1024px) {
@@ -694,12 +735,29 @@ section {
     border-radius: 20px;
     overflow: hidden;
     box-shadow: 0 10px 40px rgba(230, 57, 70, 0.08);
-    transition: all 0.4s ease;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
 }
 
-.menu-item:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 60px rgba(230, 57, 70, 0.15);
+/* タップ時の押し込み感 */
+.menu-item:active {
+    transform: scale(0.98);
+    box-shadow: 0 5px 20px rgba(230, 57, 70, 0.1);
+}
+
+/* PCのみホバー */
+@media (hover: hover) and (pointer: fine) {
+    .menu-item:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 20px 60px rgba(230, 57, 70, 0.15);
+    }
+
+    .menu-item:hover .menu-image img {
+        transform: scale(1.1);
+    }
 }
 
 .menu-image {
@@ -971,9 +1029,9 @@ footer {
     list-style: none;
 }
 
-/* SP用SNSアイコン（nav内・PC非表示） */
+/* SP用SNSアイコン（PC完全非表示） */
 .nav-sns-sp {
-    display: none;
+    display: none !important;
     list-style: none;
 }
 
@@ -1087,7 +1145,7 @@ footer {
         z-index: 1200;
     }
 
-    /* 右からスライドイン（元の動作に戻す） */
+    /* 右からスライドイン */
     .nav-links {
         display: flex !important;
         position: fixed;
@@ -1106,6 +1164,8 @@ footer {
         box-shadow: -5px 0 15px rgba(0,0,0,0.15);
         transition: right 0.3s ease;
         z-index: 1050;
+        visibility: visible;
+        opacity: 1;
     }
 
     .nav-links.active {
@@ -1116,6 +1176,9 @@ footer {
         margin: 1.2rem 0;
         width: 100%;
         text-align: center;
+        opacity: 1;
+        transform: none;
+        transition: none;
     }
 
     .nav-links a {
@@ -1123,6 +1186,11 @@ footer {
         color: white;
         display: block;
         padding: 0.3rem 0;
+        flex-direction: row;
+    }
+
+    .nav-links a::after {
+        display: none;
     }
 
     /* SP: PCのSNSアイコンは非表示 */
@@ -1139,9 +1207,10 @@ footer {
     }
 
     .nav-sns-sp a img {
-        width: 40px;
-        height: 40px;
+        width: 40px !important;
+        height: 40px !important;
         border-radius: 8px;
+        max-width: 40px !important;
     }
 
     /* SP: フッターは縦並びに戻す */
@@ -1385,4 +1454,130 @@ body.has-fixed-hero {
 /* header は Hero より前面に */
 header {
     z-index: 1100 !important;
+}
+
+/* =============================================
+   nav-links: body 直下移動後のPC/SP対応
+   ============================================= */
+
+/* PC: ヘッダー内に固定表示 */
+body > ul.nav-links {
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    right: 0;
+    transform: none;
+    width: 100% !important;
+    height: 74px;
+    display: flex;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 3rem !important;
+    list-style: none;
+    padding: 0 15% !important;
+    margin: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    max-width: none !important;
+    z-index: 1200 !important;
+    opacity: 1 !important;
+    pointer-events: none;
+    visibility: visible !important;
+    /* headerと同じtransitionでスムーズに連動 */
+    transition: transform 0.35s cubic-bezier(0.4,0,0.2,1) !important;
+}
+
+/* リンク部分だけクリック可能に */
+body > ul.nav-links li {
+    pointer-events: auto !important;
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+    margin: 0 !important;
+}
+
+body > ul.nav-links a {
+    font-family: var(--font-handwritten) !important;
+    font-size: 1.15rem !important;
+    font-weight: 600 !important;
+    color: white !important;
+    letter-spacing: 0.05em !important;
+    padding: 0.5rem 0 !important;
+    display: block !important;
+}
+
+/* PC: SNSアイコンliは非表示 */
+body > ul.nav-links .nav-sns-sp,
+body > ul.nav-links .nav-social-sp {
+    display: none !important;
+}
+
+/* SP: フルスクリーンメニュー */
+@media (max-width: 768px) {
+    body > ul.nav-links {
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        transform: none !important;
+        width: 100% !important;
+        height: 100% !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 0 !important;
+        padding: 0 !important;
+        background: var(--strawberry-red) !important;
+        z-index: 1060 !important;
+        opacity: 0 !important;
+        pointer-events: none !important;
+        transition: opacity 0.4s ease !important;
+        visibility: visible !important;
+    }
+
+    body > ul.nav-links.active {
+        opacity: 1 !important;
+        pointer-events: auto !important;
+    }
+
+    body > ul.nav-links li {
+        margin: 0.8rem 0 !important;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.35s ease, transform 0.35s ease !important;
+    }
+
+    body > ul.nav-links.active li:nth-child(1) { transition-delay: 0.05s; opacity: 1; transform: translateY(0); }
+    body > ul.nav-links.active li:nth-child(2) { transition-delay: 0.10s; opacity: 1; transform: translateY(0); }
+    body > ul.nav-links.active li:nth-child(3) { transition-delay: 0.15s; opacity: 1; transform: translateY(0); }
+    body > ul.nav-links.active li:nth-child(4) { transition-delay: 0.20s; opacity: 1; transform: translateY(0); }
+    body > ul.nav-links.active li:nth-child(5) { transition-delay: 0.25s; opacity: 1; transform: translateY(0); }
+    body > ul.nav-links.active li:nth-child(6) { transition-delay: 0.30s; opacity: 1; transform: translateY(0); }
+    body > ul.nav-links.active li:nth-child(7) { transition-delay: 0.35s; opacity: 1; transform: translateY(0); }
+
+    body > ul.nav-links a {
+        font-size: 1.6rem !important;
+        color: white !important;
+        letter-spacing: 0.08em !important;
+        padding: 0.6rem 2rem !important;
+        text-align: center !important;
+    }
+
+    /* SP: SNSアイコンを表示 */
+    body > ul.nav-links .nav-sns-sp,
+    body > ul.nav-links .nav-social-sp {
+        display: flex !important;
+        gap: 1.5rem !important;
+        justify-content: center !important;
+        margin-bottom: 1rem !important;
+        opacity: 1 !important;
+        transform: none !important;
+    }
+
+    body > ul.nav-links .nav-sns-sp a img,
+    body > ul.nav-links .nav-social-sp a img {
+        width: 36px !important;
+        height: 36px !important;
+        border-radius: 8px !important;
+    }
 }

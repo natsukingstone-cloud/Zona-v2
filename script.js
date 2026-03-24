@@ -1,8 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
 
-    // =============================================
-    // Hero Slider（TOPページのみ）
-    // =============================================
+    // Hero Slider
     const slides = document.querySelectorAll('.hero-slide');
     let currentSlide = 0;
 
@@ -16,29 +14,50 @@ document.addEventListener('DOMContentLoaded', function () {
         setInterval(() => showSlide(currentSlide + 1), 5000);
     }
 
-    // =============================================
-    // Hamburger Menu（背景オーバーレイで閉じる対応）
-    // =============================================
+    // Hamburger Menu
     const hamburger = document.querySelector('.hamburger');
     const navLinks  = document.querySelector('.nav-links');
 
     if (hamburger && navLinks) {
+        // nav-links を body 直下に移動（header の stacking context を脱出）
+        document.body.appendChild(navLinks);
+
+        // メニュー外タップ用オーバーレイ
+        const navOverlay = document.createElement('div');
+        navOverlay.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;z-index:1049;display:none;';
+        document.body.appendChild(navOverlay);
+
+        function openNav() {
+            hamburger.classList.add('active');
+            navLinks.classList.add('active');
+            navOverlay.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeNav() {
+            hamburger.classList.remove('active');
+            navLinks.classList.remove('active');
+            navOverlay.style.display = 'none';
+            document.body.style.overflow = '';
+        }
+
         hamburger.addEventListener('click', () => {
-            hamburger.classList.toggle('active');
-            navLinks.classList.toggle('active');
+            navLinks.classList.contains('active') ? closeNav() : openNav();
         });
 
+        navOverlay.addEventListener('click', closeNav);
+        navOverlay.addEventListener('touchstart', closeNav, { passive: true });
+
         navLinks.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                hamburger.classList.remove('active');
-                navLinks.classList.remove('active');
-            });
+            link.addEventListener('click', closeNav);
+        });
+
+        navLinks.addEventListener('click', (e) => {
+            if (!e.target.closest('a')) closeNav();
         });
     }
 
-    // =============================================
     // Header Hide on Scroll Down / Show on Scroll Up
-    // =============================================
     const header    = document.querySelector('header');
     let lastScrollY = window.scrollY;
     const headerH   = header ? header.offsetHeight : 80;
@@ -50,52 +69,34 @@ document.addEventListener('DOMContentLoaded', function () {
     function updateHeader(sy) {
         const diff = sy - lastScrollY;
         header.classList.toggle('scrolled', sy > 50);
+
+        // nav-linksもheaderと同期して動かす
+        const navLinksEl = document.querySelector('body > ul.nav-links') || navLinks;
+
         if (sy <= headerH) {
             header.style.transform = 'translateY(0)';
+            if (navLinksEl) navLinksEl.style.transform = 'translateY(0)';
         } else if (diff > 4) {
             header.style.transform = 'translateY(-110%)';
+            if (navLinksEl) navLinksEl.style.transform = 'translateY(-110%)';
         } else if (diff < -4) {
             header.style.transform = 'translateY(0)';
+            if (navLinksEl) navLinksEl.style.transform = 'translateY(0)';
         }
         lastScrollY = sy;
     }
 
-    // =============================================
-    // Hero Parallax（PC のみ・TOPページ）
-    // =============================================
-    const heroSlider  = document.querySelector('.hero-slider');
+    // Hero Parallax（PC のみ）
     const heroContent = document.querySelector('.hero-content');
 
     function heroParallax(sy) {
-        if (window.innerWidth <= 768) return;
-        if (heroSlider)  heroSlider.style.transform  = `translateY(${sy * 0.4}px)`;
-        if (heroContent) {
+        if (heroContent && window.innerWidth > 768) {
             heroContent.style.transform = `translateY(${sy * 0.15}px)`;
             heroContent.style.opacity   = Math.max(0, 1 - sy / 500);
         }
     }
 
-    // =============================================
-    // Section Image Parallax（PC のみ）
-    // =============================================
-    const parallaxImages = document.querySelectorAll(
-        '.about-image img, .about-image-full img, .eat-in-image img, .seasonal-image img'
-    );
-
-    function sectionParallax() {
-        if (window.innerWidth <= 768) return;
-        parallaxImages.forEach(img => {
-            const wrap = img.closest('[class*="-image"]');
-            if (!wrap) return;
-            const rect         = wrap.getBoundingClientRect();
-            const centerOffset = rect.top + rect.height / 2 - window.innerHeight / 2;
-            img.style.transform = `translateY(${centerOffset * 0.12}px) scale(1.12)`;
-        });
-    }
-
-    // =============================================
     // Section Title Parallax（PC のみ）
-    // =============================================
     const sectionTitles = document.querySelectorAll('.section-title');
 
     function titleParallax() {
@@ -109,16 +110,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
     window.addEventListener('resize', () => {
         if (window.innerWidth <= 768) {
-            if (heroSlider)  heroSlider.style.transform  = '';
             if (heroContent) { heroContent.style.transform = ''; heroContent.style.opacity = ''; }
-            parallaxImages.forEach(img => img.style.transform = '');
-            sectionTitles.forEach(t   => t.style.transform   = '');
+            sectionTitles.forEach(t => t.style.transform = '');
         }
     });
 
-    // =============================================
     // RAF スクロールループ
-    // =============================================
     let ticking = false;
     window.addEventListener('scroll', () => {
         if (!ticking) {
@@ -126,7 +123,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 const sy = window.scrollY;
                 updateHeader(sy);
                 heroParallax(sy);
-                sectionParallax();
                 titleParallax();
                 ticking = false;
             });
@@ -137,27 +133,20 @@ document.addEventListener('DOMContentLoaded', function () {
     const sy0 = window.scrollY;
     updateHeader(sy0);
     heroParallax(sy0);
-    sectionParallax();
     titleParallax();
 
-    // =============================================
-    // Hero フェードイン（PC: JS / SP: CSS）
-    // =============================================
-    if (heroContent) {
-        if (window.innerWidth > 768) {
-            heroContent.style.opacity   = '0';
-            heroContent.style.transform = 'translateY(40px)';
-            setTimeout(() => {
-                heroContent.style.transition = 'opacity 1.2s ease, transform 1.2s ease';
-                heroContent.style.opacity    = '1';
-                heroContent.style.transform  = 'translateY(0)';
-            }, 300);
-        }
+    // Hero フェードイン（PC）
+    if (heroContent && window.innerWidth > 768) {
+        heroContent.style.opacity   = '0';
+        heroContent.style.transform = 'translateY(40px)';
+        setTimeout(() => {
+            heroContent.style.transition = 'opacity 1.2s ease, transform 1.2s ease';
+            heroContent.style.opacity    = '1';
+            heroContent.style.transform  = 'translateY(0)';
+        }, 300);
     }
 
-    // =============================================
-    // Scroll Animation（スクロール出現）- TOP & Menu共通
-    // =============================================
+    // Scroll Animation
     const animateEls = document.querySelectorAll(
         '.about-image-full, .eat-in-grid, ' +
         '.seasonal-grid, .visit-grid, .visit-map, ' +
@@ -178,7 +167,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     animateEls.forEach(el => observer.observe(el));
 
-    // メニューアイテム時差フェードアップ（menu.html & TOPプレビュー）
     document.querySelectorAll('.menu-item, .menu-preview-item').forEach((el, i) => {
         el.classList.add('anim-hidden');
         const mo = new IntersectionObserver((entries) => {
@@ -195,7 +183,6 @@ document.addEventListener('DOMContentLoaded', function () {
         mo.observe(el);
     });
 
-    // About・Eat in・Seasonal 左右スライドイン
     const fromLeftSels  = ['.about-image', '.eat-in-image', '.seasonal-image'];
     const fromRightSels = ['.about-text',  '.eat-in-text',  '.seasonal-text'];
 
@@ -221,7 +208,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     sideEls.forEach(el => sideObserver.observe(el));
 
-    // Visit カード時間差フェードアップ
     document.querySelectorAll('.visit-info').forEach((el, i) => {
         el.classList.add('anim-hidden');
         const vo = new IntersectionObserver((entries) => {
@@ -244,5 +230,14 @@ document.addEventListener('DOMContentLoaded', function () {
             seed.style.transform = `rotate(45deg) translateY(${sy * ((i % 3 + 1) * 0.08)}px)`;
         });
     }, { passive: true });
+
+    // Hero 固定：body の padding-top を画面高さに合わせる
+    if (document.querySelector('.hero-slider')) {
+        function setHeroPadding() {
+            document.body.style.paddingTop = window.innerHeight + 'px';
+        }
+        setHeroPadding();
+        window.addEventListener('resize', setHeroPadding, { passive: true });
+    }
 
 });
